@@ -50,5 +50,7 @@ gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
 #  gem 'refinerycms-page-images', :git => 'git://github.com/refinery/refinerycms-page-images.git'
 
 gem 'newrelic_rpm'
+gem 'haml-rails'
+gem 'refinerycms-bootstrap', github: "adamico/refinerycms-bootstrap"
 # END USER DEFINED
 

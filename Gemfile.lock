@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/adamico/refinerycms-bootstrap.git
+  revision: 99782a0de8538f5ec21377a14d7608a0be1d5363
+  specs:
+    refinerycms-bootstrap (2.1.0.dev)
+      bootstrap-sass (~> 2.1.0.1)
+      refinerycms-core (~> 2.0)
+      refinerycms-images (~> 2.0)
+
+GIT
   remote: git://github.com/parndt/refinerycms-i18n.git
   revision: 2a6d35554421d4e0a2ebeba6eb291bcd0ade9291
   specs:
@@ -89,6 +98,7 @@ GEM
       activerecord (>= 3.0.0)
     babosa (0.3.8)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.1.0.1)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -112,6 +122,12 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
+    haml (3.1.7)
+    haml-rails (0.3.5)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (~> 3.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -191,11 +207,13 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  haml-rails
   jquery-rails (~> 2.0.0)
   newrelic_rpm
   pg
   rails (= 3.2.8)
   refinerycms!
+  refinerycms-bootstrap!
   refinerycms-i18n!
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
