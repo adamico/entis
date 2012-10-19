@@ -49,4 +49,6 @@ gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
 #  gem 'refinerycms-search', :git => 'git://github.com/refinery/refinerycms-search.git'
 #  gem 'refinerycms-page-images', :git => 'git://github.com/refinery/refinerycms-page-images.git'
 
+gem 'newrelic_rpm'
 # END USER DEFINED
+

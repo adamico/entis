@@ -36,4 +36,10 @@ Entis::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Refinery::Core.configure do |config|
+    config.s3_backend = true
+    config.s3_bucket_name = 'entis-dev'
+    config.s3_region = 'ireland'
+  end
 end
