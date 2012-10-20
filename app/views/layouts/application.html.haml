@@ -11,7 +11,8 @@
   #page.container
     .row
       .span10= yield
-      .span2#side_menu Here goes the side area
-  %footer.container
-    = render '/refinery/footer'
+      .span2
+        #side_menu Here goes the side area
+  %footer#page_footer
+    .container= render '/refinery/footer'
   = render '/refinery/javascripts'
