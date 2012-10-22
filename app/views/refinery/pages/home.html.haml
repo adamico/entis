@@ -1,6 +1,29 @@
-.row
-  .span7
-    #main= raw @page.content_for(:body)
+%section#body_content
+  %section#body
+    .inner
+      %p.lead
+        = image_tag("logo.png")
+        Welcome to the ENTIS website!
+    %ul.thumbnails
+      %li.span2
+        %a.thumbnail
+          = image_tag("es.png")
+          Español
+        %a.thumbnail
+          = image_tag("it.png")
+          Italiano
+      %li.span4
+        %a.thumbnail
+          = image_tag("europ.jpg")
+      %li.span2
+        %a.thumbnail
+          = image_tag("de.png")
+          Deutsch
+        %a.thumbnail
+          = image_tag("gb.png")
+          English
 
-  .span3
-    #secondary= raw @page.content_for(:side_body)
+= content_for :footer do
+  Flag icons from
+  = link_to "icondrawer.com", "http://www.icondrawer.com"
+  %br
