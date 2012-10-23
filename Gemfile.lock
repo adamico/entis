@@ -17,6 +17,13 @@ GIT
       routing-filter (~> 0.3.0)
 
 GIT
+  remote: git://github.com/refinery/refinerycms-search.git
+  revision: fcb9065ac3945c47387097f6ef56ed6c01a7366d
+  specs:
+    refinerycms-search (2.1.0.dev)
+      refinerycms-core (~> 2.1.0.dev)
+
+GIT
   remote: git://github.com/refinery/refinerycms.git
   revision: b72b3ded7ff45f9bdd279515b938d80c9082a111
   specs:
@@ -224,5 +231,6 @@ DEPENDENCIES
   refinerycms!
   refinerycms-bootstrap!
   refinerycms-i18n!
+  refinerycms-search!
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

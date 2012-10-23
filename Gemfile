@@ -47,7 +47,7 @@ gem 'refinerycms', :git => 'git://github.com/refinery/refinerycms.git'
 gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
 #  gem 'refinerycms-blog', :git => 'git://github.com/refinery/refinerycms-blog.git'
 #  gem 'refinerycms-inquiries', :git => 'git://github.com/refinery/refinerycms-inquiries.git'
-#  gem 'refinerycms-search', :git => 'git://github.com/refinery/refinerycms-search.git'
+gem 'refinerycms-search', :git => 'git://github.com/refinery/refinerycms-search.git'
 #  gem 'refinerycms-page-images', :git => 'git://github.com/refinery/refinerycms-page-images.git'
 
 gem 'newrelic_rpm'
