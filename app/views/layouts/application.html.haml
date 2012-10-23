@@ -3,6 +3,7 @@
 - site_bar = render('/refinery/site_bar', :head => true)
 = render '/refinery/head'
 %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+= favicon_link_tag
 %body
   = site_bar
   = render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/
@@ -12,7 +13,7 @@
     .row
       .span9= yield
       .span3
-        #side_menu Here goes the side area
+        #side_menu= render '/refinery/side_menu'
   %footer#page_footer
     .container= render '/refinery/footer'
   = render '/refinery/javascripts'
