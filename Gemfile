@@ -53,5 +53,6 @@ gem 'refinerycms-search', :git => 'git://github.com/refinery/refinerycms-search.
 gem 'newrelic_rpm'
 gem 'haml-rails'
 gem 'refinerycms-bootstrap', github: "adamico/refinerycms-bootstrap"
+gem 'fog'
 # END USER DEFINED
 
