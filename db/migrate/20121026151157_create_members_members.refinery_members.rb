@@ -17,6 +17,7 @@ class CreateMembersMembers < ActiveRecord::Migration
       t.text :affiliation
       t.text :staff
       t.string :area_served
+      t.integer :state_id
       t.integer :position
 
       t.timestamps

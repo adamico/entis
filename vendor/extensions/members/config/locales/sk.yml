@@ -1,8 +1,29 @@
 sk:
   refinery:
     plugins:
+      states:
+        title: States
       members:
         title: Members
+    states:
+      admin:
+        states:
+          actions:
+            create_new: Pridať State
+            reorder: Preusporiadať States
+            reorder_done: Koniec radenia States
+          records:
+            title: States
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne States. Kliknite na "Pridať State"
+              pre pridanie prvého state.
+          state:
+            view_live_html: Zobraziť náhľad state<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť state
+            delete: Zmazať state
+      states:
+        show:
+          other: Daľšie States
     members:
       admin:
         members:
@@ -13,7 +34,8 @@ sk:
           records:
             title: Members
             sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
-            no_items_yet: Nie sú vytvorené žiadne Members. Kliknite na "Pridať Member" pre pridanie prvého member.
+            no_items_yet: Nie sú vytvorené žiadne Members. Kliknite na "Pridať Member"
+              pre pridanie prvého member.
           member:
             view_live_html: Zobraziť náhľad member<br/><em>(otvorí sa v novom okne)</em>
             edit: Upraviť member
@@ -23,7 +45,9 @@ sk:
           other: Daľšie Members
   activerecord:
     attributes:
-      'refinery/members/member':
+      refinery/states/state:
+        name: Name
+      refinery/members/member:
         name: Name
         service_name: Service Name
         service_head: Service Head

@@ -1,9 +1,30 @@
 es:
   refinery:
     plugins:
+      states:
+        title: States
       members:
         title: Members
-#        article: masculino/femenino
+    states:
+      admin:
+        states:
+          actions:
+            create_new: Crear nuevo state
+            reorder: Reordenar states
+            reorder_done: Reordenación de states completada
+          records:
+            title: States
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay states todavía. Pulsa en "Crear nuevo State" para
+              crear tu primer state.
+          state:
+            view_live_html: Ver este state como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
+            edit: Editar este state
+            delete: Borrar este state para siempre
+      states:
+        show:
+          other: Otros states
     members:
       admin:
         members:
@@ -14,9 +35,11 @@ es:
           records:
             title: Members
             sorry_no_results: Lo siento, no hay resultados
-            no_items_yet: No hay members todavía. Pulsa en "Crear nuevo Member" para crear tu primer member.
+            no_items_yet: No hay members todavía. Pulsa en "Crear nuevo Member" para
+              crear tu primer member.
           member:
-            view_live_html: Ver este member como abierto al público <br/><em>(abre en ventana nueva)</em>
+            view_live_html: Ver este member como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
             edit: Editar este member
             delete: Borrar este member para siempre
       members:
@@ -24,7 +47,9 @@ es:
           other: Otros members
   activerecord:
     attributes:
-      'refinery/members/member':
+      refinery/states/state:
+        name: Name
+      refinery/members/member:
         name: Name
         service_name: Service Name
         service_head: Service Head
