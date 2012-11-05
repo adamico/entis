@@ -55,3 +55,5 @@ gem 'haml-rails'
 gem 'refinerycms-bootstrap', github: "adamico/refinerycms-bootstrap"
 # END USER DEFINED
 
+
+gem 'refinerycms-members', :path => 'vendor/extensions'
