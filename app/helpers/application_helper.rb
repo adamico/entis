@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def email_def_content(member, email)
-    email.gsub(/<\/?p>/, "").split(", ").map {|item| mail_to(item, nil, replace_at: "_at_", replace_dot: "_dot_")}.join("<br/>").html_safe
+    email.gsub(/<\/?p>/, "").split("<br />").map {|item| mail_to(item, nil, replace_at: "_at_", replace_dot: "_dot_")}.join("<br/>").html_safe
   end
 end
