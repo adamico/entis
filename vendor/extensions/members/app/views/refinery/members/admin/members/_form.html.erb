@@ -9,6 +9,11 @@
   </div>
 
   <div class='field'>
+    <%= f.label :state_id -%>
+    <%= f.collection_select :state_id, ::Refinery::States::State.order("name ASC"), :id, :name -%>
+  </div>
+
+  <div class='field'>
     <%= f.label :service_name -%>
     <%= f.text_field :service_name -%>
   </div>

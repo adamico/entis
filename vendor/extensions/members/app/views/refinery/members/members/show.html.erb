@@ -3,97 +3,46 @@
 <% end %>
 
 <% content_for :body do %>
-  <section>
-    <h1>Name</h1>
-    <p>
-      <%=raw @member.name %>
-    </p>
-  </section>
-  <section>
-    <h1>Service Name</h1>
-    <p>
-      <%=raw @member.service_name %>
-    </p>
-  </section>
-  <section>
-    <h1>Service Head</h1>
-    <p>
-      <%=raw @member.service_head %>
-    </p>
-  </section>
-  <section>
-    <h1>Address</h1>
-    <p>
-      <%=raw @member.address %>
-    </p>
-  </section>
-  <section>
-    <h1>Phone</h1>
-    <p>
-      <%=raw @member.phone %>
-    </p>
-  </section>
-  <section>
-    <h1>Fax</h1>
-    <p>
-      <%=raw @member.fax %>
-    </p>
-  </section>
-  <section>
-    <h1>Email</h1>
-    <p>
-      <%=raw @member.email %>
-    </p>
-  </section>
-  <section>
-    <h1>Website</h1>
-    <p>
-      <%=raw @member.website %>
-    </p>
-  </section>
-  <section>
-    <h1>Creation</h1>
-    <p>
-      <%=raw @member.creation %>
-    </p>
-  </section>
-  <section>
-    <h1>Accept Calls From</h1>
-    <p>
-      <%=raw @member.accept_calls_from %>
-    </p>
-  </section>
-  <section>
-    <h1>Hours</h1>
-    <p>
-      <%=raw @member.hours %>
-    </p>
-  </section>
-  <section>
-    <h1>Affiliation</h1>
-    <p>
-      <%=raw @member.affiliation %>
-    </p>
-  </section>
-  <section>
-    <h1>Staff</h1>
-    <p>
-      <%=raw @member.staff %>
-    </p>
-  </section>
+  <dl class="dl-horizontal dl-large">
+    <dt>Name of service</dt>
+    <dd><%=raw @member.service_name %></dd>
+    <dt>Head of service</dt>
+    <dd><%=raw @member.service_head %></dd>
+    <dt>Address</dt>
+    <dd><%=raw @member.address %></dd>
+    <dt>Phone</dt>
+    <dd><%=raw @member.phone %></dd>
+    <dt>Fax</dt>
+    <dd><%=raw @member.fax %></dd>
+    <dt>Email</dt>
+    <dd><%=raw @member.email %></dd>
+    <dt>Website</dt>
+    <dd><%=raw @member.website %></dd>
+    <dt>Creation</dt>
+    <dd><%=raw @member.creation %></dd>
+    <dt>Accept Calls From</dt>
+    <dd><%=raw @member.accept_calls_from %></dd>
+    <dt>Hours</dt>
+    <dd><%=raw @member.hours %></dd>
+    <dt>Affiliation</dt>
+    <dd><%=raw @member.affiliation %></dd>
+    <dt>Staff</dt>
+    <dd><%=raw @member.staff %></dd>
 <% end %>
 
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="members">
-      <% @members.each do |member| %>
-        <li>
-          <%= link_to member.name, refinery.members_member_path(member) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
+<% if @other_members.any? -%>
+  <% content_for :side_body do %>
+    <aside>
+      <h2><%= t('.other') %></h2>
+      <ul id="members">
+        <% @other_members.each do |member| %>
+          <li>
+            <%= link_to member.name, refinery.members_member_path(member) %>
+          </li>
+        <% end %>
+      </ul>
+    </aside>
+  <% end %>
+<% end -%>
 
 <%= render '/refinery/content_page' %>
