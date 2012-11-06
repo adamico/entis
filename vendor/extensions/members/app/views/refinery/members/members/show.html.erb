@@ -21,7 +21,7 @@
       <ul id="members">
         <% @other_members.each do |member| %>
           <li>
-            <%= link_to member.name, refinery.members_member_path(member) %>
+            <%= link_to member.name, refinery.members_state_members_path(member, state_id: member.state) %>
           </li>
         <% end %>
       </ul>

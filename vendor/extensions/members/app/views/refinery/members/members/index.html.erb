@@ -8,9 +8,9 @@
         <td><%= state.name %></td>
         <td>
           <ul class="comma-list">
-            <% state.members.each do |member| %>
+            <% state.members.order("name ASC").each do |member| %>
               <li>
-                <%= link_to member.name, refinery.members_state_members_path(member, state_id: member.state.to_param) %>
+                <%= link_to member.name, refinery.members_state_members_path(member, state_id: member.state) %>
               </li>
             <% end -%>
           </ul>
