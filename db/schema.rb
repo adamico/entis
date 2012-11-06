@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106093429) do
+ActiveRecord::Schema.define(:version => 20121106102604) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(:version => 20121106093429) do
     t.string   "service_head"
     t.text     "address"
     t.text     "phone"
-    t.string   "fax"
+    t.text     "fax"
     t.text     "email"
-    t.string   "website"
-    t.string   "creation"
+    t.text     "website"
+    t.text     "creation"
     t.text     "accept_calls_from"
     t.text     "hours"
     t.text     "affiliation"

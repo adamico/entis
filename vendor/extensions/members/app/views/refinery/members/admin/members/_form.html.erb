@@ -26,23 +26,15 @@
   <div class='field'>
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
-                :fields => [:address, :phone, :email, :accept_calls_from, :hours, :affiliation, :staff],
+                :fields => [:address, :phone, :fax, :email, :website, :creation, :accept_calls_from, :hours, :affiliation],
                 :object => "members/member" -%>
   </div>
 
   <div class='field'>
-    <%= f.label :fax -%>
-    <%= f.text_field :fax -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :website -%>
-    <%= f.text_field :website -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :creation -%>
-    <%= f.text_field :creation -%>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:staff],
+                :object => "members/member" -%>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
