@@ -1,0 +1,63 @@
+en:
+  refinery:
+    plugins:
+      states:
+        title: States
+      members:
+        title: Members
+    states:
+      admin:
+        states:
+          actions:
+            create_new: Add New State
+            reorder: Reorder States
+            reorder_done: Done Reordering States
+          records:
+            title: States
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no States yet. Click "Add New State" to add your
+              first state.
+          state:
+            view_live_html: View this state live <br/><em>(opens in a new window)</em>
+            edit: Edit this state
+            delete: Remove this state forever
+      states:
+        show:
+          other: Other States
+    members:
+      admin:
+        members:
+          actions:
+            create_new: Add New Member
+            reorder: Reorder Members
+            reorder_done: Done Reordering Members
+          records:
+            title: Members
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Members yet. Click "Add New Member" to add
+              your first member.
+          member:
+            view_live_html: View this member live <br/><em>(opens in a new window)</em>
+            edit: Edit this member
+            delete: Remove this member forever
+      members:
+        show:
+          other: Other Members
+  activerecord:
+    attributes:
+      refinery/states/state:
+        name: Name
+      refinery/members/member:
+        name: Name
+        service_name: Service Name
+        service_head: Service Head
+        address: Address
+        phone: Phone
+        fax: Fax
+        email: Email
+        website: Website
+        creation: Creation
+        accept_calls_from: Accept Calls From
+        hours: Hours
+        affiliation: Affiliation
+        staff: Staff

@@ -69,6 +69,13 @@ GIT
       rack-cache (>= 0.5.3)
       refinerycms-core (= 2.1.0.dev)
 
+PATH
+  remote: vendor/extensions
+  specs:
+    refinerycms-members (1.0)
+      acts_as_indexed (~> 0.7)
+      refinerycms-core (~> 2.1.0.dev)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -255,6 +262,7 @@ DEPENDENCIES
   refinerycms!
   refinerycms-bootstrap!
   refinerycms-i18n!
+  refinerycms-members!
   refinerycms-search!
   sass-rails (~> 3.2.3)
   thin

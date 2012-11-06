@@ -46,9 +46,16 @@ a.thumbnail
 .dl-horizontal.dl-large
   dt
     width: 180px
+    &:after
+      content: " :"
   dd
     margin-left: 190px
+    p
+      margin-bottom: 0
 
 .navbar-logo
   margin-top: 5px
   padding: 0 10px
+
+.comma-list
+  +delimited-list

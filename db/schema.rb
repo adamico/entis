@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022085140) do
+ActiveRecord::Schema.define(:version => 20121106093429) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -23,6 +23,30 @@ ActiveRecord::Schema.define(:version => 20121022085140) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "refinery_members", :force => true do |t|
+    t.string   "name"
+    t.string   "service_name"
+    t.string   "service_head"
+    t.text     "address"
+    t.text     "phone"
+    t.string   "fax"
+    t.text     "email"
+    t.string   "website"
+    t.string   "creation"
+    t.text     "accept_calls_from"
+    t.text     "hours"
+    t.text     "affiliation"
+    t.text     "staff"
+    t.string   "area_served"
+    t.integer  "state_id"
+    t.integer  "position"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_members", ["slug"], :name => "index_refinery_members_on_slug"
 
   create_table "refinery_page_part_translations", :force => true do |t|
     t.integer  "refinery_page_part_id"
@@ -107,6 +131,16 @@ ActiveRecord::Schema.define(:version => 20121022085140) do
 
   add_index "refinery_roles_users", ["role_id", "user_id"], :name => "index_refinery_roles_users_on_role_id_and_user_id"
   add_index "refinery_roles_users", ["user_id", "role_id"], :name => "index_refinery_roles_users_on_user_id_and_role_id"
+
+  create_table "refinery_states", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "slug"
+  end
+
+  add_index "refinery_states", ["slug"], :name => "index_refinery_states_on_slug"
 
   create_table "refinery_user_plugins", :force => true do |t|
     t.integer "user_id"

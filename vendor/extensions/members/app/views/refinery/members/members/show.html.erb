@@ -1,0 +1,48 @@
+<% content_for :body_content_title do %>
+  <%= @member.name %>
+<% end %>
+
+<% content_for :body do %>
+  <dl class="dl-horizontal dl-large">
+    <dt>Name of service</dt>
+    <dd><%=raw @member.service_name %></dd>
+    <dt>Head of service</dt>
+    <dd><%=raw @member.service_head %></dd>
+    <dt>Address</dt>
+    <dd><%=raw @member.address %></dd>
+    <dt>Phone</dt>
+    <dd><%=raw @member.phone %></dd>
+    <dt>Fax</dt>
+    <dd><%=raw @member.fax %></dd>
+    <dt>Email</dt>
+    <dd><%=raw @member.email %></dd>
+    <dt>Website</dt>
+    <dd><%=raw @member.website %></dd>
+    <dt>Creation</dt>
+    <dd><%=raw @member.creation %></dd>
+    <dt>Accept Calls From</dt>
+    <dd><%=raw @member.accept_calls_from %></dd>
+    <dt>Hours</dt>
+    <dd><%=raw @member.hours %></dd>
+    <dt>Affiliation</dt>
+    <dd><%=raw @member.affiliation %></dd>
+    <dt>Staff</dt>
+    <dd><%=raw @member.staff %></dd>
+<% end %>
+
+<% if @other_members.any? -%>
+  <% content_for :side_body do %>
+    <aside>
+      <h2><%= t('.other') %></h2>
+      <ul id="members">
+        <% @other_members.each do |member| %>
+          <li>
+            <%= link_to member.name, refinery.members_member_path(member) %>
+          </li>
+        <% end %>
+      </ul>
+    </aside>
+  <% end %>
+<% end -%>
+
+<%= render '/refinery/content_page' %>

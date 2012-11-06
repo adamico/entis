@@ -57,3 +57,5 @@ gem 'fog'
 gem 'thin'
 # END USER DEFINED
 
+
+gem 'refinerycms-members', :path => 'vendor/extensions'
