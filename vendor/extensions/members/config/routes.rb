@@ -3,6 +3,7 @@ Refinery::Core::Engine.routes.append do
   # Frontend routes
   namespace :members do
     resources :members, :path => '', :only => [:index, :show]
+    match ':state_id/:id' => 'members#show', as: "state_members"
   end
 
   # Admin routes

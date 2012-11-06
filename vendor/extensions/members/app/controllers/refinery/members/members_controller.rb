@@ -14,7 +14,7 @@ module Refinery
 
       def show
         @member = Member.find(params[:id])
-        @state = Refinery::States::State.find(@member.state_id)
+        @state = Refinery::States::State.find(params[:state_id])
         @other_members = @state.members.order('name ASC').reject {|m| m === @member}
 
         # you can use meta fields from your model instead (e.g. browser_title)
