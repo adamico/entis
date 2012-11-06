@@ -3,6 +3,7 @@ module Refinery
     class MembersController < ::ApplicationController
 
       before_filter :find_all_members
+      before_filter :find_all_states
       before_filter :find_page
 
       def index
@@ -20,6 +21,10 @@ module Refinery
       end
 
     protected
+
+      def find_all_states
+        @states = Refinery::States::State.order('name ASC')
+      end
 
       def find_all_members
         @members = Member.order('position ASC')

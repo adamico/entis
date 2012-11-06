@@ -1,11 +1,23 @@
 <% content_for :body do %>
-  <ul id="members">
-    <% @members.each do |member| %>
-      <li>
-        <%= link_to member.name, refinery.members_member_path(member) %>
-      </li>
-    <% end %>
-  </ul>
+  <table id="members" class="table table-condensed">
+    <tr>
+      <td colspan="2"><%= image_tag "kaart.gif" %></td>
+    </tr>
+    <% @states.each do |state| -%>
+      <tr>
+        <td><%= state.name %></td>
+        <td>
+          <ul class="comma-list">
+            <% state.members.each do |member| %>
+              <li>
+                <%= link_to member.name, refinery.members_member_path(member) %>
+              </li>
+            <% end -%>
+          </ul>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
 <% end %>
 
 <%= render '/refinery/content_page' %>
