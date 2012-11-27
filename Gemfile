@@ -49,6 +49,8 @@ gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
 #  gem 'refinerycms-inquiries', :git => 'git://github.com/refinery/refinerycms-inquiries.git'
 gem 'refinerycms-search', :git => 'git://github.com/refinery/refinerycms-search.git'
 #  gem 'refinerycms-page-images', :git => 'git://github.com/refinery/refinerycms-page-images.git'
+gem "refinerycms-news", git: "https://github.com/refinery/refinerycms-news.git"
+gem "refinerycms-settings", git: "https://github.com/refinery/refinerycms-settings.git"
 
 gem 'newrelic_rpm'
 gem 'haml-rails'
