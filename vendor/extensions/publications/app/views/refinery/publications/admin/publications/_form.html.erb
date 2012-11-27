@@ -4,20 +4,18 @@
               :include_object_name => true %>
 
   <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
     <%= f.label :authors -%>
     <%= f.text_field :authors, :class => 'larger widest' -%>
   </div>
 
   <div class='field'>
-    <%= render '/refinery/admin/wysiwyg',
-                :f => f,
-                :fields => [:title],
-                :object => "publications/publication" -%>
-  </div>
-
-  <div class='field'>
     <%= f.label :review -%>
-    <%= f.text_field :review -%>
+    <%= f.text_field :review, :class => 'larger widest' -%>
   </div>
 
   <div class='field'>
