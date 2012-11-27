@@ -1,0 +1,30 @@
+cs:
+  refinery:
+    plugins:
+      publications:
+        title: Publications
+    publications:
+      admin:
+        publications:
+          actions:
+            create_new: Přidat Publication
+            reorder: Řadit Publications
+            reorder_done: Konec řazení Publications
+          records:
+            title: Publications
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Publications. Zvolte "Přidat Publication" pro přidání prvního publication.
+          publication:
+            view_live_html: Zobrazit náhled publication<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit publication
+            delete: Smazat publication
+      publications:
+        show:
+          other: Další Publications
+  activerecord:
+    attributes:
+      'refinery/publications/publication':
+        authors: Authors
+        title: Title
+        review: Review
+        year: Year

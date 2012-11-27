@@ -92,6 +92,9 @@ PATH
     refinerycms-members (1.0)
       acts_as_indexed (~> 0.7)
       refinerycms-core (~> 2.1.0.dev)
+    refinerycms-publications (1.0)
+      acts_as_indexed (~> 0.7)
+      refinerycms-core (~> 2.1.0.dev)
 
 GEM
   remote: https://rubygems.org/
@@ -281,6 +284,7 @@ DEPENDENCIES
   refinerycms-i18n!
   refinerycms-members!
   refinerycms-news!
+  refinerycms-publications!
   refinerycms-search!
   refinerycms-settings!
   sass-rails (~> 3.2.3)

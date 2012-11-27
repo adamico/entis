@@ -1,0 +1,32 @@
+zh-CN:
+  refinery:
+    plugins:
+      publications:
+        title: Publications
+    publications:
+      admin:
+        publications:
+          actions:
+            create_new: 建立新的 Publication
+            reorder: 对 Publications 重新排序
+            reorder_done: 对 Publications 的重新排序结束
+          records:
+            title: Publications
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Publications yet. Click "Add New Publication" to add your first publication.
+            no_items_yet: 目前没有 Publications . 点击 "Add New Publication" 创建一个publication.
+          publication:
+            view_live_html: 查看 publication 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 publication
+            delete: 永久删除 publication
+      publications:
+        show:
+          other: 其他 Publications
+  activerecord:
+    attributes:
+      'refinery/publications/publication':
+        authors: Authors
+        title: Title
+        review: Review
+        year: Year

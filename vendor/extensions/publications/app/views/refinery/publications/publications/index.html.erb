@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="publications">
+    <% @publications.each do |publication| %>
+      <li>
+        <%= link_to publication.authors, refinery.publications_publication_path(publication) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

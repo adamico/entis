@@ -61,3 +61,5 @@ gem 'thin'
 
 
 gem 'refinerycms-members', :path => 'vendor/extensions'
+
+gem 'refinerycms-publications', :path => 'vendor/extensions'

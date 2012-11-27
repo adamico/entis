@@ -1,0 +1,17 @@
+= content_tag_for :tr, publication do
+  %td
+    %strong= publication.year
+  %td{style: "width: 300px;"}= publication.title
+  %td= publication.authors
+  %td= publication.review
+  %td.action_links{style: "width: 60px;"}
+    = link_to refinery_icon_tag("application_go.png"), refinery.publications_publication_path(publication),
+      :title => t('.view_live_html'),
+      :target => "_blank"
+    = link_to refinery_icon_tag("application_edit.png"), refinery.edit_publications_admin_publication_path(publication),
+       :title => t('.edit')
+    = link_to refinery_icon_tag("delete.png"), refinery.publications_admin_publication_path(publication),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => publication.authors),
+        :method => :delete
