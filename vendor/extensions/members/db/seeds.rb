@@ -306,7 +306,7 @@ states =
       }]
     },
     {state: "The Nederlands", cities: [
-      {name: "'s-Hertogenbosch'",
+      {name: "'s-Hertogenbosch",
        service_name: "Teratologie Informatie Service Lareb",
        service_head: "Netteke Wentges, MD",
        address: ["Teratologie Informatie Service Lareb", "Goudsbloemvallei 7", "5237 MH 's-Hertogenbosch", "The Netherlands"],
@@ -374,6 +374,14 @@ states =
     }
   ]
 
+def process_array_data(array)
+  if array
+    array.join("<br />")
+  else
+    ""
+  end
+end
+
 states.each do |state|
   state_name = state[:state]
   puts "processing state: #{state_name}"
@@ -381,108 +389,16 @@ states.each do |state|
   state[:cities].each do |member|
     puts "processing #{state_name} city: #{member[:name]}"
     city = Refinery::Members::Member.find_or_create_by_name!(member[:name])
+    %w(email address affiliation staff).each do |field|
+      field_before = member[field.to_sym]
+      member[field.to_sym] = "<p>" + process_array_data(field_before) + "</p>"
+    end
     city.attributes = member
     city.state = the_state
     city.save!
   end
 end
 
-#def get_lines_for_dd(field)
-  #if field
-    #lines = []
-    #field.each do |line|
-      #lines << "<dd>#{line}</dd>"
-    #end
-    #lines.join("\n")
-  #else
-    #""
-  #end
-#end
-
-#members.each do |member|
-  #I18n.locale = :en
-  #member_page = Refinery::Page.by_slug("members").first
-  #name = member[:state]
-  #puts "processing state: #{name}"
-  #page = Refinery::Page.by_title(name).empty? ? member_page.children.create({title: name, skip_to_first_child: true, show_in_menu: false}) : Refinery::Page.by_title(name).first
-  #page.parts.create({
-              #:title => "Body",
-              #:body => "",
-              #:position => 0
-            #})
-  #page.parts.create({
-              #:title => "Side Body",
-              #:body => "",
-              #:position => 1
-            #})
-  #member[:cities].each do |city|
-    #puts "processing #{name} city: #{city[:name]}"
-    #if Refinery::Page.by_title(city[:name]).empty?
-      #body = <<-EOS
-              #<dl class="dl-horizontal dl-large">
-                #<dt>Name of service:</dt>
-                #<dd>#{city[:service_name]}</dd>
-
-                #<dt>Head of service:</dt>
-                #<dd>#{city[:service_head]}</dd>
-
-                #<dt>Address:</dt>
-
-              #EOS
-      #body << get_lines_for_dd(city[:address])
-
-      #body << <<-EOS
-
-        #<dt>Phone:</dt>
-        #<dd>#{city[:phone]}</dd>
-
-        #<dt>Fax:</dt>
-        #<dd>#{city[:fax]}</dd>
-
-        #<dt>Email:</dt>
-
-      #EOS
-
-      #body << get_lines_for_dd(city[:email])
-
-      #body << <<-EOS
-
-        #<dt>Date of formal creation:</dt>
-        #<dd>#{city[:creation]}</dd>
-
-        #<dt>Affiliation:</dt>
-
-      #EOS
-
-      #body << get_lines_for_dd(city[:affiliation])
-
-      #body << <<-EOS
-
-        #<dt>Hours of service:</dt>
-        #<dd>#{city[:hours]}</dd>
-
-        #<dt>Accept calls from:</dt>
-        #<dd>#{city[:accept_calls_from]}</dd>
-
-        #<dt>Geographic area served:</dt>
-        #<dd>#{city[:area]}</dd>
-
-        #<dt>Staff:</dt>
-
-      #EOS
-
-      #body << get_lines_for_dd(city[:staff])
-
-      #body << "\n</dl>"
-      #city_page = page.children.create(title: city[:name],
-                           #show_in_menu: false)
-      #city_page.parts.create({title: "Body",
-                           #body: body,
-                           #position: 0
-      #})
-    #end
-  #end
-#end
 Refinery::I18n.frontend_locales.each do |lang|
   I18n.locale = lang
 
