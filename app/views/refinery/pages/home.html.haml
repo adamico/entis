@@ -4,6 +4,10 @@
       %p.lead
         = image_tag("logo.png")
         Welcome to the ENTIS website!
+    %hr
+    .last-news-item
+      = render '/refinery/news/items/item', item: Refinery::News::Item.latest(1).first
+    %hr
     %ul.thumbnails
       %li.span2
         %a.thumbnail

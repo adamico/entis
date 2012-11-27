@@ -1,0 +1,17 @@
+<% content_for :body do %>
+  <%=raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) unless params[:page] %>
+
+  <% if @items.any? %>
+    <%= render @items %>
+    <%= will_paginate @items %>
+  <% else %>
+    <p><em><%= t('.no_items_yet') %></em></p>
+  <% end %>
+<% end -%>
+
+<% content_for :body_content_right_prepend do -%>
+  <%= raw @page.content_for(::Refinery::Pages.default_parts.second.to_sym) %>
+<% end if ::Refinery::Pages.default_parts.many? -%>
+<%= render '/refinery/news/shared/body_content_right' %>
+
+<%= render "/refinery/content_page" %>
