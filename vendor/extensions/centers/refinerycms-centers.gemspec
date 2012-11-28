@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
 
   # Runtime dependencies
-  s.add_dependency             'refinerycms-core',    '~> 2.0.9'
+  s.add_dependency             'refinerycms-core',    '~> 2.0.8'
 
   # Development dependencies (usually used for testing)
-  s.add_development_dependency 'refinerycms-testing', '~> 2.0.9'
+  s.add_development_dependency 'refinerycms-testing', '~> 2.0.8'
 end

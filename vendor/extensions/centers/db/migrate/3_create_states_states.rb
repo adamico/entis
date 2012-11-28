@@ -1,11 +1,9 @@
-# This migration comes from refinery_centers (originally 2)
 class CreateStatesStates < ActiveRecord::Migration
 
   def up
     create_table :refinery_states do |t|
       t.string :name
       t.integer :position
-      t.string :slug
 
       t.timestamps
     end

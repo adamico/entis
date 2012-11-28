@@ -1,11 +1,23 @@
 <% content_for :body do %>
-  <ul id="centers">
-    <% @centers.each do |center| %>
-      <li>
-        <%= link_to center.name, refinery.centers_center_path(center) %>
-      </li>
-    <% end %>
-  </ul>
+  <table id="centers" class="table table-condensed">
+    <tr>
+      <td colspan="2"><%= image_tag "kaart.gif" %></td>
+    </tr>
+    <% @states.each do |state| -%>
+      <tr>
+        <td><%= state.name %></td>
+        <td>
+          <ul class="comma-list">
+            <% state.centers.order("name ASC").each do |center| %>
+              <li>
+                <%= link_to center.name, refinery.centers_state_centers_path(center, state_id: center.state) %>
+              </li>
+            <% end -%>
+          </ul>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
 <% end %>
 
 <%= render '/refinery/content_page' %>

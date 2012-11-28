@@ -3,6 +3,7 @@ Refinery::Core::Engine.routes.append do
   # Frontend routes
   namespace :centers do
     resources :centers, :path => '', :only => [:index, :show]
+    match ':state_id/:id' => 'centers#show', as: "state_centers"
   end
 
   # Admin routes

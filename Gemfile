@@ -40,7 +40,7 @@ gem 'jquery-rails', '~> 2.0.0'
 # gem 'debugger'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.0'
+gem 'refinerycms', '2.0.8'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n', '~> 2.0.0'
@@ -55,3 +55,5 @@ gem 'haml-rails'
 gem 'newrelic_rpm'
 
 gem 'refinerycms-centers', :path => 'vendor/extensions'
+
+gem 'refinerycms-publications', :path => 'vendor/extensions'

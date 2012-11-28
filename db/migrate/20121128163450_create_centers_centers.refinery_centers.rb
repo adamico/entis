@@ -19,7 +19,6 @@ class CreateCentersCenters < ActiveRecord::Migration
       t.string :area_served
       t.text :staff
       t.integer :position
-      t.string :slug
 
       t.timestamps
     end
