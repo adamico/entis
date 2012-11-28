@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128144443) do
+ActiveRecord::Schema.define(:version => 20121128160439) do
+
+  create_table "refinery_centers", :force => true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.string   "service_name"
+    t.string   "service_head"
+    t.text     "address"
+    t.text     "phone"
+    t.text     "fax"
+    t.text     "email"
+    t.text     "website"
+    t.text     "creation"
+    t.text     "accept_calls_from"
+    t.text     "hours"
+    t.text     "affiliation"
+    t.string   "area_served"
+    t.text     "staff"
+    t.integer  "position"
+    t.string   "slug"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -25,27 +47,47 @@ ActiveRecord::Schema.define(:version => 20121128144443) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "refinery_members", :force => true do |t|
-    t.string   "name"
-    t.string   "service_name"
-    t.string   "service_head"
-    t.text     "address"
-    t.text     "phone"
-    t.text     "fax"
-    t.text     "email"
-    t.text     "website"
-    t.string   "creation"
-    t.text     "accept_calls_from"
-    t.text     "hours"
-    t.text     "affiliation"
-    t.text     "staff"
-    t.string   "area_served"
-    t.integer  "state_id"
-    t.integer  "position"
-    t.string   "slug"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+  create_table "refinery_membership_email_part_translations", :force => true do |t|
+    t.integer  "refinery_membership_email_part_id"
+    t.string   "locale"
+    t.text     "body"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
+
+  add_index "refinery_membership_email_part_translations", ["locale"], :name => "index_refinery_membership_email_part_translations_on_locale"
+  add_index "refinery_membership_email_part_translations", ["refinery_membership_email_part_id"], :name => "index_a67a470abc863aaf2d59f6b294eb9bb4414afa68"
+
+  create_table "refinery_membership_email_parts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "refinery_membership_email_parts", ["title"], :name => "index_refinery_membership_email_parts_on_title", :unique => true
+
+  create_table "refinery_membership_email_translations", :force => true do |t|
+    t.integer  "refinery_membership_email_id"
+    t.string   "locale"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "refinery_membership_email_translations", ["locale"], :name => "index_refinery_membership_email_translations_on_locale"
+  add_index "refinery_membership_email_translations", ["refinery_membership_email_id"], :name => "index_2605064b986486e26049fef85d6ee6d5c6b78479"
+
+  create_table "refinery_membership_emails", :force => true do |t|
+    t.string   "title"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "refinery_membership_emails", ["title"], :name => "index_refinery_membership_emails_on_title", :unique => true
 
   create_table "refinery_news_item_translations", :force => true do |t|
     t.integer  "refinery_news_item_id"
@@ -136,14 +178,9 @@ ActiveRecord::Schema.define(:version => 20121128144443) do
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
 
-  create_table "refinery_publications", :force => true do |t|
-    t.string   "authors"
-    t.text     "title"
-    t.string   "review"
-    t.integer  "year"
-    t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "refinery_pages_roles", :id => false, :force => true do |t|
+    t.integer "page_id"
+    t.integer "role_id"
   end
 
   create_table "refinery_resources", :force => true do |t|
