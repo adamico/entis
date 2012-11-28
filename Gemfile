@@ -54,7 +54,7 @@ gem "refinerycms-settings", git: "https://github.com/refinery/refinerycms-settin
 
 gem 'newrelic_rpm'
 gem 'haml-rails'
-gem 'refinerycms-bootstrap', github: "adamico/refinerycms-bootstrap"
+#gem 'refinerycms-bootstrap', github: "adamico/refinerycms-bootstrap"
 gem 'fog'
 gem 'thin'
 # END USER DEFINED
