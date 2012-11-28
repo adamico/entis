@@ -15,8 +15,5 @@ Refinery::Search::Engine.load_seed
 # Added by Refinery CMS News engine
 Refinery::News::Engine.load_seed
 
-# Added by Refinery CMS Members extension
-Refinery::Members::Engine.load_seed
-
-# Added by Refinery CMS Publications extension
-Refinery::Publications::Engine.load_seed
+# Added by Refinery CMS Centers extension
+Refinery::Centers::Engine.load_seed

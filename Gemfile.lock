@@ -9,12 +9,8 @@ GIT
 PATH
   remote: vendor/extensions
   specs:
-    refinerycms-members (1.0)
-      acts_as_indexed (~> 0.7)
-      refinerycms-core (~> 2.0.0)
-    refinerycms-publications (1.0)
-      acts_as_indexed (~> 0.7)
-      refinerycms-core (~> 2.0.0)
+    refinerycms-centers (1.0)
+      refinerycms-core (~> 2.0.9)
 
 GEM
   remote: https://rubygems.org/
@@ -249,10 +245,9 @@ DEPENDENCIES
   pg
   rails (= 3.2.9)
   refinerycms (~> 2.0.0)
+  refinerycms-centers!
   refinerycms-i18n (~> 2.0.0)
-  refinerycms-members!
   refinerycms-news
-  refinerycms-publications!
   refinerycms-search (~> 2.0.0)!
   sass-rails (~> 3.2.3)
   thin

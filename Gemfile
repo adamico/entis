@@ -50,9 +50,8 @@ gem 'refinerycms-i18n', '~> 2.0.0'
 gem "refinerycms-news"
 gem 'refinerycms-search', '~> 2.0.0', :git => 'git://github.com/refinery/refinerycms-search.git', :branch => '2-0-stable'
 
-gem 'refinerycms-members', :path => 'vendor/extensions'
-gem 'refinerycms-publications', :path => 'vendor/extensions'
-
 gem 'fog'
 gem 'haml-rails'
 gem 'newrelic_rpm'
+
+gem 'refinerycms-centers', :path => 'vendor/extensions'
