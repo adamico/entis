@@ -206,8 +206,7 @@ publications = [
     "Chem Listy. 2007; 101: s122-s125.",
   ],[
     "Mathieu-Nolf M, Subtil D, Durak-Carpeza C, Couvreux-Dif D, Cartegnie S, Poiteau M, Verrin E",
-    "Environmental hazards and pregnancy : potential exposure and expectation of pregnant women.",
-    "European Teratology Society 33rd Annual Conference 3-7 September 2005, Hotel Haarlem-Zuid, Haarlem, The Netherlands",
+    "Environmental hazards and pregnancy : potential exposure and expectation of pregnant women. European Teratology Society 33rd Annual Conference 3-7 September 2005, Hotel Haarlem-Zuid, Haarlem, The Netherlands",
     "Reprod Toxicol. 2005; 20(3):471.",
   ],[
     "Mathieu-Nolf M, Durak-Carpeza C, Mathieu D, Subtil D, Peucelle D.",
@@ -287,8 +286,7 @@ publications = [
     "Am J Med Genet (Part A) 2006; 140A:987-997.",
   ],[
     "Mathieu-Nolf M, Subtil D, Carpeza-Durak C, Couvreux-Dif D, Nisse P",
-    "Abstracts of the European Association of Poisons Centres and Clinical Toxicologists XXVI International Congress Volume 44 No. 4 Pages 401 – 586",
-    "Environmental hazards and pregnancy: potential exposure and expectation of pregnant woman",
+    "Abstracts of the European Association of Poisons Centres and Clinical Toxicologists XXVI International Congress Volume 44 No. 4 Pages 401 – 586 Environmental hazards and pregnancy: potential exposure and expectation of pregnant woman",
     "Clinical Toxicology. 2006; 44:548.",
   ],[
     "Ostensen M, Khamashta M, Lockshin M, Parke A, Brucato A, Carp H, Doria A, Rai R, Meroni P, Cetin I, Derksen R, Branch W, Motta M, Gordon C, Ruiz-Irastorza G, Spinillo A, Friedman D, Cimaz R, Czeizel A, Piette JC, Cervera R, Levy RA, Clementi M, De Ca.",
@@ -454,7 +452,7 @@ publications = [
   ],[
     "Merlob P.",
     "Drug exposure during pregnancy:  Pharmaceutical advertising.",
-    "Reprod Toxicol. 19:260.",
+    "Reprod Toxicol. 2004 19:260.",
   ],[
     "Merlob P.",
     "Infants of mothers with malignant disease (IMMD).",
