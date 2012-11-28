@@ -1,0 +1,95 @@
+<%= form_for [refinery, :centers_admin, @center] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @center,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :state_id -%>
+    <%= f.number_field :state_id  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :service_name -%>
+    <%= f.text_field :service_name  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :service_head -%>
+    <%= f.text_field :service_head  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:address, :phone, :fax, :email, :website, :creation, :accept_calls_from, :hours, :affiliation, :staff].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/centers/center", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:address, :phone, :fax, :email, :website, :creation, :accept_calls_from, :hours, :affiliation, :staff].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :area_served -%>
+    <%= f.text_field :area_served  -%>
+
+  </div>
+  
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.centers.admin.centers.center'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @center.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

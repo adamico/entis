@@ -1,0 +1,65 @@
+sk:
+  refinery:
+    plugins:
+      states:
+        title: States
+      centers:
+        title: Centers
+    states:
+      admin:
+        states:
+          actions:
+            create_new: Pridať State
+            reorder: Preusporiadať States
+            reorder_done: Koniec radenia States
+          records:
+            title: States
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne States. Kliknite na "Pridať State"
+              pre pridanie prvého state.
+          state:
+            view_live_html: Zobraziť náhľad state<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť state
+            delete: Zmazať state
+      states:
+        show:
+          other: Daľšie States
+    centers:
+      admin:
+        centers:
+          actions:
+            create_new: Pridať Center
+            reorder: Preusporiadať Centers
+            reorder_done: Koniec radenia Centers
+          records:
+            title: Centers
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Centers. Kliknite na "Pridať Center"
+              pre pridanie prvého center.
+          center:
+            view_live_html: Zobraziť náhľad center<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť center
+            delete: Zmazať center
+      centers:
+        show:
+          other: Daľšie Centers
+  activerecord:
+    attributes:
+      refinery/states/state:
+        name: Name
+      refinery/centers/center:
+        name: Name
+        state_id: State
+        service_name: Service Name
+        service_head: Service Head
+        address: Address
+        phone: Phone
+        fax: Fax
+        email: Email
+        website: Website
+        creation: Creation
+        accept_calls_from: Accept Calls From
+        hours: Hours
+        affiliation: Affiliation
+        area_served: Area Served
+        staff: Staff

@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="centers">
+    <% @centers.each do |center| %>
+      <li>
+        <%= link_to center.name, refinery.centers_center_path(center) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

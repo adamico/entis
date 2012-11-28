@@ -1,0 +1,65 @@
+fr:
+  refinery:
+    plugins:
+      states:
+        title: States
+      centers:
+        title: Centers
+    states:
+      admin:
+        states:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) State
+            reorder: Réordonner les States
+            reorder_done: Fin de réordonnancement des States
+          records:
+            title: States
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) State. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) State" pour créer votre premi(er/ère) state.
+          state:
+            view_live_html: Voir ce(t/tte) state <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) state
+            delete: Supprimer définitivement ce(t/tte) state
+      states:
+        show:
+          other: Autres States
+    centers:
+      admin:
+        centers:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Center
+            reorder: Réordonner les Centers
+            reorder_done: Fin de réordonnancement des Centers
+          records:
+            title: Centers
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) Center. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) Center" pour créer votre premi(er/ère) center.
+          center:
+            view_live_html: Voir ce(t/tte) center <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) center
+            delete: Supprimer définitivement ce(t/tte) center
+      centers:
+        show:
+          other: Autres Centers
+  activerecord:
+    attributes:
+      refinery/states/state:
+        name: Name
+      refinery/centers/center:
+        name: Name
+        state_id: State
+        service_name: Service Name
+        service_head: Service Head
+        address: Address
+        phone: Phone
+        fax: Fax
+        email: Email
+        website: Website
+        creation: Creation
+        accept_calls_from: Accept Calls From
+        hours: Hours
+        affiliation: Affiliation
+        area_served: Area Served
+        staff: Staff

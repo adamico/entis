@@ -1,0 +1,111 @@
+<% content_for :body_content_title do %>
+  <%= @center.name %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @center.name %>
+    </p>
+  </section>
+  <section>
+    <h1>State</h1>
+    <p>
+      <%=raw @center.state_id %>
+    </p>
+  </section>
+  <section>
+    <h1>Service Name</h1>
+    <p>
+      <%=raw @center.service_name %>
+    </p>
+  </section>
+  <section>
+    <h1>Service Head</h1>
+    <p>
+      <%=raw @center.service_head %>
+    </p>
+  </section>
+  <section>
+    <h1>Address</h1>
+    <p>
+      <%=raw @center.address %>
+    </p>
+  </section>
+  <section>
+    <h1>Phone</h1>
+    <p>
+      <%=raw @center.phone %>
+    </p>
+  </section>
+  <section>
+    <h1>Fax</h1>
+    <p>
+      <%=raw @center.fax %>
+    </p>
+  </section>
+  <section>
+    <h1>Email</h1>
+    <p>
+      <%=raw @center.email %>
+    </p>
+  </section>
+  <section>
+    <h1>Website</h1>
+    <p>
+      <%=raw @center.website %>
+    </p>
+  </section>
+  <section>
+    <h1>Creation</h1>
+    <p>
+      <%=raw @center.creation %>
+    </p>
+  </section>
+  <section>
+    <h1>Accept Calls From</h1>
+    <p>
+      <%=raw @center.accept_calls_from %>
+    </p>
+  </section>
+  <section>
+    <h1>Hours</h1>
+    <p>
+      <%=raw @center.hours %>
+    </p>
+  </section>
+  <section>
+    <h1>Affiliation</h1>
+    <p>
+      <%=raw @center.affiliation %>
+    </p>
+  </section>
+  <section>
+    <h1>Area Served</h1>
+    <p>
+      <%=raw @center.area_served %>
+    </p>
+  </section>
+  <section>
+    <h1>Staff</h1>
+    <p>
+      <%=raw @center.staff %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="centers">
+      <% @centers.each do |center| %>
+        <li>
+          <%= link_to center.name, refinery.centers_center_path(center) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>
