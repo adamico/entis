@@ -1,0 +1,52 @@
+<%= form_for [refinery, :members_admin, @member] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @member,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :state_id -%>
+    <%= f.collection_select :state_id, ::Refinery::States::State.order("name ASC"), :id, :name -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :service_name -%>
+    <%= f.text_field :service_name, class: 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :service_head -%>
+    <%= f.text_field :service_head, class: 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:address, :phone, :fax, :email, :website, :creation, :accept_calls_from, :hours, :affiliation],
+                :object => "members/member" -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:staff],
+                :object => "members/member" -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.members.admin.members.member'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @member.name) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

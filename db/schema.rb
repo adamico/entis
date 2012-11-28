@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128140222) do
+ActiveRecord::Schema.define(:version => 20121128144443) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(:version => 20121128140222) do
     t.string   "image_ext"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "refinery_members", :force => true do |t|
+    t.string   "name"
+    t.string   "service_name"
+    t.string   "service_head"
+    t.text     "address"
+    t.text     "phone"
+    t.text     "fax"
+    t.text     "email"
+    t.text     "website"
+    t.string   "creation"
+    t.text     "accept_calls_from"
+    t.text     "hours"
+    t.text     "affiliation"
+    t.text     "staff"
+    t.string   "area_served"
+    t.integer  "state_id"
+    t.integer  "position"
+    t.string   "slug"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "refinery_news_item_translations", :force => true do |t|
@@ -114,6 +136,16 @@ ActiveRecord::Schema.define(:version => 20121128140222) do
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
 
+  create_table "refinery_publications", :force => true do |t|
+    t.string   "authors"
+    t.text     "title"
+    t.string   "review"
+    t.integer  "year"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "refinery_resources", :force => true do |t|
     t.string   "file_mime_type"
     t.string   "file_name"
@@ -148,6 +180,14 @@ ActiveRecord::Schema.define(:version => 20121128140222) do
   end
 
   add_index "refinery_settings", ["name"], :name => "index_refinery_settings_on_name"
+
+  create_table "refinery_states", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_user_plugins", :force => true do |t|
     t.integer "user_id"

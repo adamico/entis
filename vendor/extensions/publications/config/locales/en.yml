@@ -1,0 +1,30 @@
+en:
+  refinery:
+    plugins:
+      publications:
+        title: Publications
+    publications:
+      admin:
+        publications:
+          actions:
+            create_new: Add New Publication
+            reorder: Reorder Publications
+            reorder_done: Done Reordering Publications
+          records:
+            title: Publications
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Publications yet. Click "Add New Publication" to add your first publication.
+          publication:
+            view_live_html: View this publication live <br/><em>(opens in a new window)</em>
+            edit: Edit this publication
+            delete: Remove this publication forever
+      publications:
+        show:
+          other: Other Publications
+  activerecord:
+    attributes:
+      'refinery/publications/publication':
+        authors: Authors
+        title: Title
+        review: Review
+        year: Year
