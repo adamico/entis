@@ -10,6 +10,7 @@ Refinery::Pages.configure do |config|
 
   # Configure whether to allow adding new page parts
   # config.new_page_parts = false
+  config.new_page_parts = true
 
   # Configure whether to enable marketable_urls
   # config.marketable_urls = true
