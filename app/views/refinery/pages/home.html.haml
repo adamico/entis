@@ -6,7 +6,7 @@
         Welcome to the ENTIS website!
     %hr
     .last-news-item
-      = render '/refinery/news/items/item', item: Refinery::News::Item.latest(1).first
+      = render '/refinery/news/items/item', item: (last_item = Refinery::News::Item.latest(1).first) if last_item
     %hr
     %ul.thumbnails
       %li.span2
