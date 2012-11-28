@@ -1,0 +1,10 @@
+<%= form_tag refinery.search_path, class: "form-search" do -%>
+  <strong>Search ENTIS site</strong>
+  <div class="input-append">
+    <%= text_field_tag :query, {}, {class: "input-small search-query",
+                       :value => (params[:query] if params[:query])} %>
+    <%= button_tag class: "btn" do -%>
+      <i class="icon-search"></i>
+    <% end -%>
+  </div>
+<% end %>
