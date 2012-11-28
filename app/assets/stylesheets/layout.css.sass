@@ -1,0 +1,69 @@
+body
+  background-image: image-url("dna2.png")
+  background-position: left 40px
+  background-attachment: fixed
+  background-repeat: repeat-x
+  background-color: #ade0f1
+  padding-top: 40px
+.navbar-fixed-top
+  border-bottom: 5px solid #22A7F2
+#page
+  background-color: rgba(255, 255, 255, 0.5)
+#main, #secondary, #body_content, #side_menu
+  +border-radius(6px)
+  border: 1px solid rgba(0, 0, 0, 0.2)
+  background: white
+  min-height: 500px
+  margin-top: 15px
+  margin-bottom: 15px
+#main, #body_content
+  margin-left: 15px
+#body_content_title
+  margin-top: 0
+#side_menu
+  margin-right: 15px
+#main, #secondary, #body_content, #side_menu
+  padding: 10px
+#secondary
+  font-size: 95%
+#side_menu
+  font-size: 85%
+#page_footer
+  font-size: 80%
+  border-top: 5px solid #CC7212
+  padding: 0.5em
+  p
+    margin-bottom: 0.5em
+
+.blue
+  color: dodgerBlue
+ul.text-info
+  color: #3A87AD
+a.thumbnail
+  text-align: center
+  margin-bottom: 0.5em
+
+.dl-horizontal.dl-large
+  dt
+    width: 180px
+    &:after
+      content: " :"
+  dd
+    margin-left: 190px
+    p
+      margin-bottom: 0
+
+.navbar-logo
+  margin-top: 5px
+  padding: 0 10px
+
+.comma-list
+  +delimited-list
+
+hr
+  margin: 10px 0
+
+#publications
+  margin-top: 10px
+.publication
+  font-size: 90%
