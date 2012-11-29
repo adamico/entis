@@ -597,16 +597,109 @@ end
     end
   end
 
+  publication_root = Refinery::Page.by_title("Publications")
+  if publication_root.empty?
+    publication_root = ::Refinery::Page.create(
+      title: "Publications",
+      skip_to_first_child: true
+    )
+  end
+
+  if Refinery::Page.by_title("Books dummy").empty?
+    publication_root.children.create(
+      title: "Books dummy",
+      menu_title: "Books",
+      body: nil,
+      link_url: "/books"
+    )
+  end
+
   url = "/publications"
   if defined?(Refinery::Page) && Refinery::Page.where(:link_url => url).empty?
-    page = Refinery::Page.create(
+    studies_page = publication_root.children.create(
       :title => 'Collaborative studies',
       :link_url => url,
       :deletable => false,
       :menu_match => "^#{url}(\/|\/.+?|)$"
     )
     Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
-      page.parts.create(:title => default_page_part, :body => nil, :position => index)
+      studies_page.parts.create(:title => default_page_part, :body => nil, :position => index)
     end
+  end
+
+  books_page = Refinery::Page.by_title("Books")
+  if books_page.empty?
+    books_page = publication_root.children.create(
+      title: "Books",
+      show_in_menu: false,
+      body: <<-EOF
+            <p><a href="http://www.elsevierdirect.com/product.jsp?lid=100007&amp;iid=0&amp;sid=100067&amp;isbn=9780444520722"><img alt="book" src="/assets/book1.jpg" /></a></p><br />
+
+            <p>Treatment Options and Risk Assessment<br /><br />
+
+            Second Edition<br /> <br />
+
+            <strong>Edited By</strong> <br />
+
+            <strong>Christof Schaefer</strong>, Teratology Information Unit Berlin, Beratungsstelle Embryotoxikologie, Berlin, Germany<br />
+
+            <strong>Paul W.J. Peters</strong>, Department of Obstetrics, Division of Perinatology and Gynecology, University Medical Centre Utrecht, The Netherlands<br />
+
+            <strong>Richard K Miller</strong>, Teratogen Information Center, Univ. of Rochester, Dept Obstetrics and Gynecology, NY, U.S.A.<br /> <br />
+
+            <strong>Description</strong> <br />
+
+            The latest edition is <em>the</em> resource for any practicing OB/GYN, family physician, midwife, or pharmacist who prescribes medicinal products to or evaluates environmental or occupational exposures in women who are or may become pregnant. Based on the highly successful seven German editions of this reference, the up-to-date drug listings have been revised into a handy pocket guide color tabbed for quick access to important information.  Easy to reference each drug is listed discussing the side effects, general impact on organ systems, potential toxicity, and risks before offering dosage recommendations. It is the only book of its kind to provide conclusive information on treatments for diseases during pregnancy and lactation and actions to be taken after (inadvertant) exposure to drugs suspected to be developmentaly toxic. Unlike other dosage guides, this edition is an affordable, compact compendium of knowledge on the very latest drugs and their effects on pregnant/lactating women. <br /> <br />
+
+            <strong>Audience</strong> <br />
+
+            Obstetricians and Gynecologists; Breast feeding specialists, Nursing practitioners<br /> <br />
+
+            <strong>Contents</strong> <br />
+
+            Preface List of Contributors<br /> <br />
+
+            <strong>1. General commentary to drug therapy and drug risks in pregnancy</strong> <br />
+
+            Richard K. Miller, Paul W. Peters and Christof E. Schaefer<br /> <br />
+
+            <strong>2. Specific drug therapies during pregnancy</strong> <br />
+
+            2.1 Analgesics and Anti-Inflammatory Drugs Minke Reuvers, Christof Schaefer, 2.2 Antiallergic Drugs and Desensitization Margreet Rost van Tonningen, 2.3 Antiasthmatic and Cough Medication Hanneke Garbis, 2.4 Antiemetics Lee H Goldstein, Matitiahu Berkovitch, 2.5 Gastrointestinal, Antilipidemic Agents and Spasmolytics Margreet Rost van Tonningen, 2.6 Anti-infective agents Hanneke Garbis, Margreet Rost van Tonningen, Minke Reuvers, 2.7 Vaccines and Immunoglobulins Paul Peters, 2.8 Heart and Circulatory System Drugs and Diuretics Corinna Weber-Schoendorfer, 2.9 Anticoagulant and fibrinolytic drugs Minke Reuvers, 2.10 Antiepileptics Elisabeth Robert-Gnansia, Christof Schaefer, 2.11 Psychotropic drugs Hanneke Garbis, Patricia R. McElhatton, 2.12.Immunomodulators Corinna Weber-Schoendorfer, 2.13 Antineoplastic Drugs Corinna Weber-Schoendorfer, Christof Schaefer, 2.14 Uterine contraction agents, tocolytics, vaginal therapeutics and local contraceptives Herman van Geijn, 2.15 Hormones Elvira Rodriguez-Pinilla, Corinna Weber-Schoendorfer, 2.16 General and local anesthetics and muscle relaxants Asher Ornoy, 2.17 Dermatological medications and local therapeutics Paul Peters, Christof Schaefer, 2.18 Vitamins, minerals and trace elements Paul Peters, Christof Schaefer, 2.19 Herbs During Pregnancy Henry M. Hess, Richard K. Miller, 2.20 Diagnostic agents Elisabeth Robert-Gnansia, 2.21 Recreational drugs Paul Peters Christof Schaefer, 2.22 Poisonings and Toxins Christof Schaefer, 2.23 Occupational, industrial and environmental agents Paul Peters, Richard K. Miller and Patricia R. McElhatton <br /><br />
+
+            <strong>3 General Commentary on Drug Therapy and Drug Risk During Lactation</strong><br />
+
+            Ruth Lawrence, Christof Schaefer<br /><br />
+            <strong>4 Specific drug therapies during lactation</strong> <br />
+
+            4.1 Analgesics, antiphlogistics and anesthetics Christof Schaefer, 4.2 Antiallergics, antiasthmatics and antitussives Christof Schaefer, 4.3 Gastrointestinal drugs Christof Schaefer, 4.4 Antiinfectives Christof Schaefer, 4.5 Vaccines and Immunoglobulins Ruth Lawrence, Christof Schaefer, 4.6 Cardiovascular drugs and diuretics Christof Schaefer, 4.7 Anticoagulants and fibrinolytics Christof Schaefer, 4.8 Antiepileptics Christof Schaefer, 4.9 Psychotropic drugs Christof Schaefer, 4.10 Immunomodulating and Antineoplastic Agents Ruth Lawrence, Christof Schaefer, 4.11 Hormones and hormone antagonists Christof Schaefer, 4.12 Dermatological Drugs and Local Therapeutics Ruth Lawrence, Christof Schaefer, 4.13 Alternative Remedies, Vitamins and Minerals Ruth Lawrence, Christof Schaefer, 4.14 Diagnostics Ruth Lawrence, Christof Schaefer, 4.15 Infections Ruth Lawrence, Christof Schaefer, 4.16 Recreational Drugs Ruth Lawrence, Christof Schaefer, 4.17 Plant Toxins Ruth Lawrence, Christof Schaefer, 4.18 Industrial chemicals and environmental contaminants Christof Schaefer, Appendix A - Teratology Information Centers, Appendix B - Addresses for breastfeeding support, Subject Index<br /><br />
+            <strong>Bibliographic &amp; ordering Information</strong><br />
+            Hardbound, 904 pages, publication date: JUN-2007<br />
+            ISBN-13: 978-0-444-52072-2<br />
+            ISBN-10: 0-444-52072-4<br />
+            Imprint: ACADEMIC PRESS<br />
+            <strong>Price:</strong></p>
+
+            <p>EUR 41.95<br />
+            USD 49.95<br />
+            GBP 28.99<br /><br /></p>
+            <p><strong><a href="http://www.elsevier.com/locate/isbn/0-444-50763-9"><strong>DRUGS DURING PREGNANCY AND LACTATION</strong><br />
+            Handbook of prescription drugs and comparative risk assessment</a> </strong></p>
+
+            <p>Edited by<br />
+            <strong>C. Schaefer<br />
+            </strong>Co-authors: <br />
+            <strong>H. Garbis, P. McElhatton, P. Peters, M. Reuvers, E.  Robert, M. Rost van Tonningen, A. Scialli<br />
+            </strong>ELSEVIER, AMSTERDAM 2001<br />
+            ISBN: 0-444-50763-9</p>
+
+            <p><strong>Description<br />
+            </strong>The care of pregnant women presents one of the paradoxes of modern medicine.  Women usually require little medical intervention during an (uneventful) pregnancy. Conversely, those at high risk of damage to their own health or that of their unborn require the help of appropriate medicinal technology, including drugs. Accordingly, there are two classes of pregnant women, the larger group requires support but not much intervention, while the other needs the full range of diagnostic and therapeutic measures applied in any other branch of medicine.</p>
+
+            <p>This book presents the current state of knowledge about drugs in pregnancy. In each chapter information is presented separately for two different aspects of the problem seeking a drug appropriate for prescription during pregnancy, and assessing the risk of a drug when exposure has already taken place.</p>
+
+            <p>Practising clinicians who prescribe medicinal products to women who are, or who may become, pregnant, will find this volume an invaluable reference.</p>
+            EOF
+    )
   end
 end
