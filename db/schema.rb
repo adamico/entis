@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128163453) do
+ActiveRecord::Schema.define(:version => 20121129084729) do
 
   create_table "refinery_centers", :force => true do |t|
     t.string   "name"
@@ -183,6 +183,16 @@ ActiveRecord::Schema.define(:version => 20121128163453) do
   create_table "refinery_pages_roles", :id => false, :force => true do |t|
     t.integer "page_id"
     t.integer "role_id"
+  end
+
+  create_table "refinery_publications", :force => true do |t|
+    t.string   "authors"
+    t.text     "title"
+    t.string   "review"
+    t.integer  "year"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "refinery_resources", :force => true do |t|

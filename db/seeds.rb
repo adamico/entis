@@ -17,3 +17,6 @@ Refinery::News::Engine.load_seed
 
 # Added by Refinery CMS Centers extension
 Refinery::Centers::Engine.load_seed
+
+# Added by Refinery CMS Publications extension
+Refinery::Publications::Engine.load_seed
