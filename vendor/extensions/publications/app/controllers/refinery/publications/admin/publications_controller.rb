@@ -4,7 +4,10 @@ module Refinery
       class PublicationsController < ::Refinery::AdminController
 
         crudify :'refinery/publications/publication',
-                :title_attribute => 'authors', :xhr_paging => true
+                :title_attribute => 'title',
+                :order => "year DESC",
+                :sortable => false,
+                :xhr_paging => true
 
       end
     end
