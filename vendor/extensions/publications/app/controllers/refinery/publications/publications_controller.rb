@@ -9,6 +9,14 @@ module Refinery
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @publication in the line below:
         @years = @publications.map(&:year).uniq
+        if params[:year]
+          @publications = @publications.where(year: params[:year])
+        else
+          @publications = Publication.order('year DESC')
+        end
+
+        @publications = @publications.order('title ASC')
+
         present(@page)
       end
 
@@ -23,7 +31,7 @@ module Refinery
     protected
 
       def find_all_publications
-        @publications = Publication.order('position ASC')
+        @publications = Publication.order('year DESC')
       end
 
       def find_page

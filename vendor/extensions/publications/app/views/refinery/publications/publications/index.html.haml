@@ -1,9 +1,12 @@
 = content_for :body do
   %div.year_list.pagination
     %ul
+      %li= link_to "All", refinery.publications_publications_path
       - @years.each do |year|
         %li= link_to year, refinery.publications_publications_path(year: year)
   %div#publications
+    - section_title = params[:year] ? "Year #{params[:year]}" : "All years"
+    %h2= section_title
     - @publications.each do |publication|
       %p.publication
         = publication.authors
