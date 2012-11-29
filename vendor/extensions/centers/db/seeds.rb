@@ -441,7 +441,8 @@ end
     page = Refinery::Page.create(
       :title => 'States',
       :link_url => url,
-      :deletable => false,
+      :deletable => true,
+      :show_in_menu => false,
       :menu_match => "^#{url}(\/|\/.+?|)$"
     )
     Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
