@@ -1,5 +1,16 @@
-<p>
-  <%= yield :footer %>
-  <%= t('.copyright', :year => Time.now.year,
-                      :site_name => Refinery::Core.site_name) %>
-</p>
+<div class="row">
+  <div class="span4">
+    <p class="muted"><%= t('.copyright', :year => Time.now.year, :site_name => Refinery::Core.site_name) %></p>
+  </div>
+  <div class="span4">
+    <ul>
+      <li><%= link_to "Home", "/" %></li>
+      <li><%= link_to "About us", "/about-us" %></li>
+      <li><%= link_to "Contact", "/contact" %></li>
+    </ul>
+  </div>
+
+  <div class="span4 custom-footer">
+    <%= yield :footer %>
+  </div>
+</div>

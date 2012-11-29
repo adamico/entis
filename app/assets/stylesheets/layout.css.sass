@@ -29,11 +29,16 @@ body
 #side_menu
   font-size: 85%
 #page_footer
-  font-size: 80%
+  font-size: 90%
+  background: whitesmoke
   border-top: 5px solid #CC7212
   padding: 0.5em
   p
-    margin-bottom: 0.5em
+    margin-bottom: 0
+  ul
+    +delimited-list(" |")
+  .custom-footer
+    text-align: right
 
 .blue
   color: dodgerBlue

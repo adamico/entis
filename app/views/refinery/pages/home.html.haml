@@ -6,7 +6,8 @@
         Welcome to the ENTIS website!
     %hr
     .last-news-item
-      = render '/refinery/news/items/item', item: (last_item = Refinery::News::Item.latest(1).first) if last_item
+      - latest_news = Refinery::News::Item.latest(1)
+      = render '/refinery/news/items/item', item: latest_news.first if latest_news.any?
     %hr
     %ul.thumbnails
       %li.span2
@@ -28,6 +29,6 @@
           English
 
 = content_for :footer do
-  Flag icons from
-  = link_to "icondrawer.com", "http://www.icondrawer.com"
-  %br
+  %p.muted
+    Flag icons from
+    = link_to "icondrawer.com", "http://www.icondrawer.com"
