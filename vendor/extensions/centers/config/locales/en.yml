@@ -42,7 +42,7 @@ en:
             delete: Remove this center forever
       centers:
         show:
-          other: Other Centers
+          other: Other Centers in %{state}
   activerecord:
     attributes:
       refinery/states/state:

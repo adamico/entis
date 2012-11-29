@@ -17,7 +17,7 @@
 <% if @other_centers.any? -%>
   <% content_for :side_body do %>
     <aside>
-      <h2><%= t('.other') %></h2>
+      <h2><%= t('.other', state: @state.name) %></h2>
       <ul id="centers">
         <% @other_centers.each do |center| %>
           <li>
