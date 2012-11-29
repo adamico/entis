@@ -597,41 +597,47 @@ end
     end
   end
 
-  publication_root = Refinery::Page.by_title("Publications")
-  if publication_root.empty?
+  if Refinery::Page.by_title("Publications").empty?
     publication_root = ::Refinery::Page.create(
       title: "Publications",
       skip_to_first_child: true
     )
-  end
 
-  if Refinery::Page.by_title("Books dummy").empty?
-    publication_root.children.create(
-      title: "Books dummy",
-      menu_title: "Books",
-      body: nil,
-      link_url: "/books"
-    )
-  end
+    if Refinery::Page.by_title("Books dummy").empty?
+      dummy_books = publication_root.children.create(
+        title: "Books dummy",
+        menu_title: "Books",
+        link_url: "/books"
+      )
+      dummy_books.parts.create(
+        title: "Body",
+        body: nil,
+        position: 0
+      )
+    end
 
-  url = "/publications"
-  if defined?(Refinery::Page) && Refinery::Page.where(:link_url => url).empty?
-    studies_page = publication_root.children.create(
-      :title => 'Collaborative studies',
-      :link_url => url,
-      :deletable => false,
-      :menu_match => "^#{url}(\/|\/.+?|)$"
-    )
-    Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
-      studies_page.parts.create(:title => default_page_part, :body => nil, :position => index)
+    url = "/publications"
+    if defined?(Refinery::Page) && Refinery::Page.where(:link_url => url).empty?
+      studies_page = publication_root.children.create(
+        :title => 'Collaborative studies',
+        :link_url => url,
+        :deletable => false,
+        :menu_match => "^#{url}(\/|\/.+?|)$"
+      )
+      Refinery::Pages.default_parts.each_with_index do |default_page_part, index|
+        studies_page.parts.create(:title => default_page_part, :body => nil, :position => index)
+      end
     end
   end
 
   books_page = Refinery::Page.by_title("Books")
   if books_page.empty?
-    books_page = publication_root.children.create(
+    books_page = Refinery::Page.create(
       title: "Books",
-      show_in_menu: false,
+      show_in_menu: false)
+    books_page.parts.create(
+      title: "Body",
+      position: 0,
       body: <<-EOF
             <p><a href="http://www.elsevierdirect.com/product.jsp?lid=100007&amp;iid=0&amp;sid=100067&amp;isbn=9780444520722"><img alt="book" src="/assets/book1.jpg" /></a></p><br />
 
