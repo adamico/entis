@@ -24,6 +24,9 @@ if about_page
   })
 end
 
+# Added by Refinery CMS Centers extension
+Refinery::Centers::Engine.load_seed
+
 if Refinery::Page.by_title("Q&A").empty?
   qa_page = ::Refinery::Page.create(title: "Q&A",
     body: <<-EOF
@@ -127,11 +130,88 @@ end
 # Added by Refinery CMS Search engine
 Refinery::Search::Engine.load_seed
 
+# Added by Refinery CMS Publications extension
+Refinery::Publications::Engine.load_seed
+
+links_page = Refinery::Page.by_title("Links")
+if links_page.empty?
+  links_page = ::Refinery::Page.create(
+    title: "Links",
+    body: <<-EOF
+          <h2>Societies</h2>
+
+          <ul>
+
+            <li><a href="http://www.otispregnancy.org/">Organization
+    of Teratology Information Services (OTIS)</a> </li>
+
+            <li><a href="http://www.teratology.org/">Teratology Society</a> </li>
+
+            <li><a href="http://www.etsoc.com/">European Teratology Society</a> </li>
+
+            <li><a href="http://www.motherisk.org/">Motherisk</a> </li>
+
+            <li><a href="http://www.ems-us.org/">Environmental Mutagen Society</a> </li>
+          </ul>
+          <h2>Journals and Resources</h2>
+
+          <ul>
+
+            <li><a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/525489/description#description">Reproductive Toxicology</a> </li>
+
+            <li><a href="http://depts.washington.edu/%7Eterisweb/">Clinical
+    Teratology Web</a> </li>
+
+            <li><a href="http://depts.washington.edu/%7Eterisweb/teris/index.html">Teratogen Information System
+    (TERIS)</a> </li>
+
+            <li><a href="http://www.reprotox.org/">Reprotox</a> </li>
+
+            <li><a href="http://www.nih.gov/">NIH</a> </li>
+
+            <li><a href="http://www.cdc.gov/">Centers
+    for Disease Control and Prevention</a>
+    </li>
+          </ul>
+
+          <h2>Other Links</h2>
+
+          <ul>
+
+            <li><a href="http://www.med.upenn.edu/meded/public/berp/index.html">Basic Embryology Review Program</a></li>
+
+            <li><a href="http://cerhr.niehs.nih.gov/index.html">The
+    National Toxicology Program</a> </li>
+
+            <li><a href="http://www.visembryo.com/baby/index.html">The
+    Visible Embryo</a> </li>
+
+            <li><a href="http://www.icbd.org">How
+    to prevent congenital malformations</a></li>
+
+            <li><a href="http://www.ifts-atlas.org/ifts/index.html">IFTS Atlas</a> </li>
+
+            <li><a href="http://www.lecrat.org">Centre de reference sur les agents teratogenes</a> </li>
+            <li><a href="http://www.embryotox.de">Arzneimittelsicherheit in Schwangerschaft und Stillzeit</a> </li>
+          </ul>
+          EOF
+  )
+end
+
 # Added by Refinery CMS News engine
 Refinery::News::Engine.load_seed
 
-# Added by Refinery CMS Centers extension
-Refinery::Centers::Engine.load_seed
+contact_page = Refinery::Page.by_title("Contact")
+if contact_page.empty?
+  contact_page = Refinery::Page.create(
+    title: "Contact",
+    show_in_menu: false,
+    body: <<-EOF
+          <p>When you have a specific question regarding pregnancy or lactation. Please check the <a href="/centers" title="Centers">Centers</a> section for the TIS in your area.</p>
 
-# Added by Refinery CMS Publications extension
-Refinery::Publications::Engine.load_seed
+          <p>For questions regarding <strong>ENTIS&#160;membership</strong> contact the <strong>ENTIS&#160;</strong>secretary <strong>Svetlana Shechtman.</strong>
+          <br />
+          Email: <a href="mailto:svetlana.shechtman@moh.health.gov.il"><strong>svetlana.shechtman@moh.health.gov.il</strong> </a> </p>
+          EOF
+  )
+end
