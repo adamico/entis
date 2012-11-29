@@ -12,8 +12,7 @@ PATH
     refinerycms-centers (1.0)
       refinerycms-core (~> 2.0.8)
     refinerycms-publications (1.0)
-      acts_as_indexed (~> 0.7)
-      refinerycms-core (~> 2.0.0)
+      refinerycms-core (~> 2.0.8)
 
 GEM
   remote: https://rubygems.org/
