@@ -1,0 +1,30 @@
+nl:
+  refinery:
+    plugins:
+      publications:
+        title: Publications
+    publications:
+      admin:
+        publications:
+          actions:
+            create_new: Maak een nieuwe Publication
+            reorder: Wijzig de volgorde van de Publications
+            reorder_done: Klaar met het wijzingen van de volgorde van de Publications
+          records:
+            title: Publications
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Publications. Druk op 'Maak een nieuwe Publication' om de eerste aan te maken.
+          publication:
+            view_live_html: Bekijk deze publication op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze publication
+            delete: Verwijder deze publication voor eeuwig
+      publications:
+        show:
+          other: Andere Publications
+  activerecord:
+    attributes:
+      'refinery/publications/publication':
+        title: Title
+        authors: Authors
+        review: Review
+        year: Year

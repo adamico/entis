@@ -1,0 +1,30 @@
+fr:
+  refinery:
+    plugins:
+      publications:
+        title: Publications
+    publications:
+      admin:
+        publications:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Publication
+            reorder: Réordonner les Publications
+            reorder_done: Fin de réordonnancement des Publications
+          records:
+            title: Publications
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Publication. Cliquer sur "Créer un(e) nouve(au/l/lle) Publication" pour créer votre premi(er/ère) publication.'
+          publication:
+            view_live_html: Voir ce(t/tte) publication <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) publication
+            delete: Supprimer définitivement ce(t/tte) publication
+      publications:
+        show:
+          other: Autres Publications
+  activerecord:
+    attributes:
+      'refinery/publications/publication':
+        title: Title
+        authors: Authors
+        review: Review
+        year: Year
