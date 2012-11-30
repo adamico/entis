@@ -231,3 +231,6 @@ if contact_page.empty?
           EOF
   )
 end
+
+# Added by Refinery CMS Memberships engine
+Refinery::Memberships::Engine.load_seed
