@@ -1,0 +1,35 @@
+<section id="body_content">
+  <section id="body">
+    <div class="inner">
+      <p class="lead">
+        <%= image_tag("logo.png") %>
+        Welcome to the ENTIS website!
+      </p>
+    </div>
+    <hr />
+    <div class="last-news-item">
+      <% latest_news = Refinery::News::Item.latest(1) -%>
+      <%= render '/refinery/news/items/item', item: latest_news.first if latest_news.any? %>
+    </div>
+    <hr />
+    <ul class="thumbnails">
+      <li class="span2">
+        <a class="thumbnail"><%= image_tag("es.png") %> Español </a>
+        <a class="thumbnail"><%= image_tag("it.png") %> Italiano</a>
+      </li>
+      <li class="span4">
+        <a class="thumbnail"><%= image_tag("europ.jpg") %></a>
+      </li>
+      <li class="span2">
+        <a class="thumbnail"><%= image_tag("de.png") %> Deutsch</a>
+        <a class="thumbnail"><%= image_tag("gb.png") %> English</a>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<% content_for :footer do -%>
+  <p class="muted">
+    Flag icons from <%= link_to "icondrawer.com", "http://www.icondrawer.com" %>
+  </p>
+<% end -%>

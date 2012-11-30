@@ -1,0 +1,25 @@
+<%= content_for :body do %>
+  <div class="year_list pagination">
+    <ul>
+      <li><%= link_to "All", refinery.publications_publications_path %></li>
+      <% @years.each do |year| -%>
+        <li><%= link_to year, refinery.publications_publications_path(year: year) %></li>
+      <% end -%>
+    </ul>
+  </div>
+  <div id="publications">
+    <% section_title = params[:year] ? "Year #{params[:year]}" : "All years" -%>
+    <h2><%= section_title %></h2>
+    <% @publications.each do |publication| -%>
+      <p class="publication">
+        <%= publication.authors %>
+        <br />
+        <strong><%= publication.title %></strong>
+        <br />
+        <%= publication.review %>
+      </p>
+    <% end -%>
+  </div>
+<% end -%>
+
+<%= render '/refinery/content_page' %>
