@@ -56,4 +56,4 @@ gem 'newrelic_rpm'
 gem 'refinerycms-centers', :path => 'vendor/extensions'
 
 gem 'refinerycms-publications', :path => 'vendor/extensions'
-gem 'refinerycms-memberships', :path => '../refinerycms_membership'
+gem 'refinerycms-memberships', git: "git://github.com/adamico/refinerycms_membership.git"

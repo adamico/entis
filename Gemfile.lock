@@ -1,19 +1,20 @@
 GIT
-  remote: git://github.com/refinery/refinerycms-search.git
-  revision: b9a1ba72384da98f430c7efb698acae1d13a04f4
-  branch: 2-0-stable
-  specs:
-    refinerycms-search (2.0.0)
-      refinerycms-core (~> 2.0.4)
-
-PATH
-  remote: ../refinerycms_membership
+  remote: git://github.com/adamico/refinerycms_membership.git
+  revision: 04cbcefdec4457c7f0a478aa6083f70e957496f6
   specs:
     refinerycms-memberships (2.0.3)
       nokogiri (~> 1.5.0)
       refinerycms-core (>= 2.0.0)
       refinerycms-settings (>= 2.0.0)
       webrat (~> 0.7.3)
+
+GIT
+  remote: git://github.com/refinery/refinerycms-search.git
+  revision: b9a1ba72384da98f430c7efb698acae1d13a04f4
+  branch: 2-0-stable
+  specs:
+    refinerycms-search (2.0.0)
+      refinerycms-core (~> 2.0.4)
 
 PATH
   remote: vendor/extensions
