@@ -18,10 +18,12 @@
     	<% if !!local_assigns[:responsive] %>
     		<%= render(:partial => "/refinery/bootstrap/menu", :locals => {:divider => :after, :roots => refinery_menu_pages[0..local_assigns[:responsive]] }) %>
     		<div class="nav-collapse">
+          <%= render '/refinery/bootstrap/member' %>
       		<%= render(:partial => "/refinery/bootstrap/menu", :locals =>  {:divider => :after_except_last, :roots => refinery_menu_pages[local_assigns[:responsive]+1..-1] }) %>
       	</div>
         <% else %>
-      	    <%= render(:partial => "/refinery/bootstrap/menu") %>
+          <%= render '/refinery/bootstrap/member' %>
+          <%= render(:partial => "/refinery/bootstrap/menu") %>
     	<% end %>
     </div>
   </div>

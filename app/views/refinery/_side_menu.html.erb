@@ -1,4 +1,16 @@
 <%= render '/refinery/shared/search' %>
-
-<% @items = Refinery::News::Item.latest(5) -%>
-<%= render '/refinery/news/items/recent_posts' if @items.any? %>
+<hr />
+<ul class="nav nav-list">
+  <li class="nav-header">ENTIS</li>
+  <li><a href="/about-us">About us</a></li>
+  <li><a href="/centers">Members</a></li>
+  <li class="divider"></li>
+  <li class="nav-header">Publications</li>
+  <li><a href="/books">Books</a></li>
+  <li><a href="/publications">Collaborative Studies</a></li>
+  <li class="divider"></li>
+  <li><a href="/links">Links</a></li>
+  <li><a href="/news">News & Events</a></li>
+</ul>
+<% items = Refinery::News::Item.latest(5) -%>
+<%= render '/refinery/news/items/recent_posts' if items.any? %>
