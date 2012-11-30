@@ -6,10 +6,8 @@ GIT
     refinerycms-search (2.0.0)
       refinerycms-core (~> 2.0.4)
 
-GIT
-  remote: git://github.com/sbeam/refinerycms_membership.git
-  revision: da0ac8fc44a49a9528a1e25a3edf34922817f784
-  branch: 2.0-stable
+PATH
+  remote: ../refinerycms_membership
   specs:
     refinerycms-memberships (2.0.3)
       nokogiri (~> 1.5.0)

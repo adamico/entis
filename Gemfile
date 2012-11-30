@@ -56,4 +56,4 @@ gem 'newrelic_rpm'
 gem 'refinerycms-centers', :path => 'vendor/extensions'
 
 gem 'refinerycms-publications', :path => 'vendor/extensions'
-gem 'refinerycms-memberships', :git => 'git://github.com/sbeam/refinerycms_membership.git', :branch => '2.0-stable'
+gem 'refinerycms-memberships', :path => '../refinerycms_membership'
