@@ -4,6 +4,6 @@
     %small
       = t('refinery.news.items.index.published')
       = l(item.publish_date, :format => :long)
-  = truncate item.body, :length => 200,
+  = truncate item.body, :length => 250,
                 :omission => " ... #{link_to t('refinery.news.items.index.read_more'), refinery.news_item_path(item)}",
                 :preserve_html_tags => true
