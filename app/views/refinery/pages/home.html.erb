@@ -11,25 +11,9 @@
       <% latest_news = Refinery::News::Item.latest(1) -%>
       <%= render '/refinery/news/items/item', item: latest_news.first if latest_news.any? %>
     </div>
-    <hr />
-    <ul class="thumbnails">
-      <li class="span2">
-        <a class="thumbnail"><%= image_tag("es.png") %> Español </a>
-        <a class="thumbnail"><%= image_tag("it.png") %> Italiano</a>
-      </li>
-      <li class="span4">
-        <a class="thumbnail"><%= image_tag("europ.jpg") %></a>
-      </li>
-      <li class="span2">
-        <a class="thumbnail"><%= image_tag("de.png") %> Deutsch</a>
-        <a class="thumbnail"><%= image_tag("gb.png") %> English</a>
-      </li>
-    </ul>
   </section>
+  <hr />
+  <div class="row-fluid">
+    <%= raw @page.content_for(:side_body) %>
+  </div>
 </section>
-
-<% content_for :footer do -%>
-  <p class="muted">
-    Flag icons from <%= link_to "icondrawer.com", "http://www.icondrawer.com" %>
-  </p>
-<% end -%>

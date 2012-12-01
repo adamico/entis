@@ -12,6 +12,16 @@ module ApplicationHelper
     email.gsub(/<\/?p>/, "").split("<br />").map {|item| mail_to(item, nil, replace_at: "_at_", replace_dot: "_dot_")}.join("<br/>").html_safe
   end
 
+  def nav_item(name=nil, alt=nil)
+    path = "/private"
+    path << "/#{name}" if name
+    css_class = is_selected?(Refinery::Page.find_by_path(path)) ? "active" : nil
+    link_name = alt ? alt : name.titleize
+    content_tag :li, class: css_class do
+      link_to link_name, path
+    end
+  end
+
   def is_selected?(page)
     path = request.path
     path = path.force_encoding('utf-8') if path.respond_to?(:force_encoding)

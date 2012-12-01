@@ -1,6 +1,5 @@
 <ul class="nav pull-right">
-  <% private_page = Refinery::Page.find_by_path("private") %>
-  <li class=<%= is_selected?(private_page) ? "active" : nil %>>
+  <li>
     <%= link_to "/private" do %>
       <i class="icon-lock"></i>
       Members only
