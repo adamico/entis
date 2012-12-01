@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def my_result_type(result)
+    result.class.to_s.titleize.gsub('Refinery/', '').gsub('/', '::').demodulize
+  end
   def def_item_for_center(center, field, content=nil)
     content = general_def_content(center, field).html_safe unless content
     content_tag(:dt, I18n.t(field, scope: "activerecord.attributes.refinery/centers/center")) + content_tag(:dd, content) if center.send(field).present?

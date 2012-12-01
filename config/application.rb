@@ -65,5 +65,12 @@ module Rickrockstar
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = true
+    config.to_prepare do
+      Refinery.searchable_models = [
+        Refinery::Page,
+        Refinery::News::Item,
+        Refinery::Publications::Publication
+      ]
+    end
   end
 end
