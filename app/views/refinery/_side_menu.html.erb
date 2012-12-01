@@ -13,4 +13,4 @@
   <li><a href="/news">News & Events</a></li>
 </ul>
 <% items = Refinery::News::Item.latest(5) -%>
-<%= render '/refinery/news/items/recent_posts' if items.any? %>
+<%= render '/refinery/news/items/recent_posts', items: items if items.any? %>
