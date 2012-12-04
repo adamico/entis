@@ -8,8 +8,10 @@
       <%= def_item_for_center(@center, field) %>
     <% end -%>
     <%= def_item_for_center(@center, "email", email_def_content(@center, @center.email)) %>
-    <dt>Website</dt>
-    <dd><%= link_to @center.website, @center.website %></dd>
+    <% if @center.website %>
+      <dt>Website</dt>
+      <dd><%= link_to @center.website, @center.website %></dd>
+    <% end -%>
     <% %w(creation affiliation hours accept_calls_from area_served staff).each do |field| -%>
       <%= def_item_for_center(@center, field) %>
     <% end -%>
