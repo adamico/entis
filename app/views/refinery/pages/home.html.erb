@@ -1,18 +1,20 @@
 <section id="body_content">
-  <section id="body">
-    <div class="inner">
-      <p class="lead">
-        <%= image_tag("logo.png") %>
-        Welcome to the ENTIS website!
-      </p>
-    </div>
-    <hr />
-    <div class="last-news-item">
-      <% latest_news = Refinery::News::Item.latest(1) -%>
-      <%= render '/refinery/news/items/item', item: latest_news.first if latest_news.any? %>
-    </div>
-  </section>
-  <hr />
+  <div class="row-fluid">
+    <section id="body">
+      <div class="inner">
+        <div class="hero-unit">
+          <div class="hero-logo span3">
+            <%= image_tag("logo.png") %>
+          </div>
+          <div class="hero-text span9">
+            <h1>ENTIS</h1>
+            <h2>European Network of Teratology Information Services</h2>
+          </div>
+        </div>
+        <%= raw @page.content_for(:body) %>
+      </div>
+    </section>
+  </div>
   <div class="row-fluid">
     <%= raw @page.content_for(:side_body) %>
   </div>
