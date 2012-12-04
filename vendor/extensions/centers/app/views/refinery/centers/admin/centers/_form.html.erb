@@ -12,8 +12,7 @@
   
   <div class='field'>
     <%= f.label :state_id -%>
-    <%= f.number_field :state_id  -%>
-
+    <%= f.collection_select :state_id, ::Refinery::States::State.order("name ASC"), :id, :name -%>
   </div>
   
   <div class='field'>

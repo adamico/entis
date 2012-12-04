@@ -4,7 +4,7 @@ module Refinery
       class CentersController < ::Refinery::AdminController
 
         crudify :'refinery/centers/center',
-                :title_attribute => 'name', :xhr_paging => true
+                :title_attribute => 'name', :xhr_paging => true, :order => "name", :sortable => false
 
       end
     end
