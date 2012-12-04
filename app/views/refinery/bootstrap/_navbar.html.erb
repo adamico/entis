@@ -2,7 +2,7 @@
 <div class="<%= nav_class %>">
   <div class="navbar-inner">
     <div class="container">
-      <div class="pull-left"><%= image_tag "logo_transp.png", class: "navbar-logo", width: "25px" %></div>
+      <div class="pull-left"><%= image_tag "logo_transp.png", class: "navbar-logo" %></div>
       <% unless !local_assigns[:brand] %>
         <%= link_to refinery.root_path, :class => "brand" do %>
           <%= Refinery::Core.site_name %>
