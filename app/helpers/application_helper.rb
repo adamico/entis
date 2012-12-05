@@ -7,6 +7,11 @@ module ApplicationHelper
     content_tag(:dt, I18n.t(field, scope: "activerecord.attributes.refinery/centers/center")) + content_tag(:dd, content) if center.send(field).present?
   end
 
+  def website_def_content(center, website)
+    link = website.gsub(/<\/?p>/, "")
+    link_to link, link, target: "_blank"
+  end
+
   def general_def_content(center, field)
     raw(center.send(field))
   end

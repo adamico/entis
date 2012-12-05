@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201142021) do
+ActiveRecord::Schema.define(:version => 20121205134610) do
 
   create_table "refinery_centers", :force => true do |t|
     t.string   "name"
     t.integer  "state_id"
     t.string   "service_name"
-    t.string   "service_head"
+    t.text     "service_head"
     t.text     "address"
     t.text     "phone"
     t.text     "fax"
