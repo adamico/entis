@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.corner
 //= require common
 //= require_tree .
