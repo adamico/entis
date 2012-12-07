@@ -7,18 +7,22 @@
 <body>
   <%= site_bar %>
   <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ %>
-  <header id="page_header" class="container"><%= render '/refinery/header' %></header>
-  <div id="page" class="container-fluid">
+  <%= render '/refinery/header' %>
+  <div id="backtotop_anchor"></div>
+  <div class="container-fluid" role="main">
     <div class="row-fluid">
       <div class="span9"><%= yield %></div>
       <div class="span3">
         <div id="side_menu"><%= render '/refinery/side_menu' %></div>
       </div>
     </div>
-    <div id="push"></div>
   </div>
-  <footer id="page_footer">
-    <div class="container"><%= render '/refinery/footer' %></div>
-  </footer>
+  <div class="bottombar">
+    <div class="bottombar-inner">
+      <div class="container">
+        <%= render '/refinery/footer' %>
+      </div>
+    </div>
+  </div>
   <%= render '/refinery/javascripts' %>
 </body>

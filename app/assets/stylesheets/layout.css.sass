@@ -1,28 +1,43 @@
 body
-  height: 100%
-  +background(#ade0f1 image-url("dna2.png") repeat-x fixed left 40px)
-  padding-top: 40px
+  padding-top: 50px
+  +background(#E0E0E0 image-url("stripes2.png"))
+
+.container-fluid[role="main"]
+  padding-bottom: 50px
+
+.bottombar
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  font-size: 90%
+  background: whitesmoke
+  border-top: 5px solid #D6A641
+  padding: 0.5em
+  p
+    margin-bottom: 0
+  ul
+    +delimited-list(" |")
+  .custom-footer
+
 .navbar-fixed-top
-  border-bottom: 5px solid #22A7F2
+  border-bottom: 5px solid #466AC3
+
 .nav li
   a i
     opacity: 0.6
   &.active, a:hover
     i
       opacity: 1
-#page
-  min-height: 100%
-  height: auto !important
-  height: 100%
-  margin: 0 80px -40px
-  +background(rgba(255, 255, 255, 0.5))
+
 #main, #secondary, #body_content, #side_menu
   +border-radius(6px)
   border: 1px solid rgba(0, 0, 0, 0.2)
-  background: white
+  background: #ddd
+  text-shadow: 0px 1px 0 white
   margin-top: 15px
   margin-bottom: 15px
-  @extend .pie-element
+
 #main, #body_content
   margin-left: 15px
 #body_content_title
@@ -30,24 +45,16 @@ body
 #side_menu
   margin-right: 15px
   &.affix
-    top: 40px
+    top: 50px
     width: 220px
 #main, #secondary, #body_content, #side_menu
-  padding: 10px
+  padding: 1em
+  .muted
+    color: #777
+    text-shadow: none
+
 #secondary
   font-size: 95%
-#page_footer, #push
-  height: 40px
-#page_footer
-  font-size: 90%
-  background: whitesmoke
-  border-top: 5px solid #CC7212
-  padding: 0.5em
-  p
-    margin-bottom: 0
-  ul
-    +delimited-list(" |")
-  .custom-footer
 
 .blue
   color: dodgerBlue

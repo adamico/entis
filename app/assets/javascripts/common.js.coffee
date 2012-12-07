@@ -3,4 +3,4 @@ $ = jQuery
 $ ->
   $("#side_menu").affix
     offset:
-      top: 0
+      top: 20
