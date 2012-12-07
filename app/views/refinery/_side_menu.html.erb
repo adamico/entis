@@ -1,12 +1,18 @@
-<%= render '/refinery/shared/search' %>
-<hr />
-<ul class="nav nav-list">
-  <li><a href="/publications">Publications</a></li>
-  <li><a href="/books">Books</a></li>
-  <li class="divider"></li>
-  <li><a href="/links">Links</a></li>
-  <li><a href="/news">News & Events</a></li>
-</ul>
-<hr />
-<% items = Refinery::News::Item.latest(5) -%>
-<%= render '/refinery/news/items/recent_posts', items: items if items.any? %>
+<div class="search">
+  <%= render '/refinery/shared/search' %>
+</div>
+
+<nav class="secondary-nav">
+  <ul class="nav nav-list">
+    <li><a href="/publications">Publications</a></li>
+    <li><a href="/books">Books</a></li>
+    <li class="divider"></li>
+    <li><a href="/links">Links</a></li>
+    <li><a href="/news">News & Events</a></li>
+  </ul>
+</nav>
+
+<div class="recent-news">
+  <% items = Refinery::News::Item.latest(5) -%>
+  <%= render '/refinery/news/items/recent_posts', items: items if items.any? %>
+</div>

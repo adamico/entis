@@ -30,13 +30,19 @@ body
     i
       opacity: 1
 
-#main, #secondary, #body_content, #side_menu
+#main, #secondary, #body_content, .search, .secondary-nav, .recent-news
   +border-radius(6px)
   border: 1px solid rgba(0, 0, 0, 0.2)
   background: #ddd
+  padding: 1em
+
+#main, #secondary, #body_content, #side_menu
   text-shadow: 0px 1px 0 white
   margin-top: 15px
   margin-bottom: 15px
+  .muted
+    color: #777
+    text-shadow: none
 
 #main, #body_content
   margin-left: 15px
@@ -48,12 +54,33 @@ body
   margin-right: 15px
   &.affix
     top: 50px
-    width: 220px
-#main, #secondary, #body_content, #side_menu
-  padding: 1em
-  .muted
-    color: #777
+    width: auto
+
+.search, .secondary-nav
+  margin-bottom: 20px
+
+.search
+  form
+    margin-bottom: 0
+
+.recent-news
+  h4
+    margin-top: 0
+  .news-container
+    background: #031542
     text-shadow: none
+  .news
+    color: white
+  .date, a
+    padding: 0.5em
+  a
+    display: block
+    text-decoration: none
+    color: white
+  .date
+    font-size: 80%
+    background-color: #466AC3
+
 
 #secondary
   font-size: 95%

@@ -1,10 +1,18 @@
-<nav id="recent_news_items">
-  <h3><%= t('.recent_posts') %></h3>
-  <ul>
+<aside id="recent_news_items">
+
+  <h4><%= t('.recent_posts') %></h3>
+  <div class="news-container">
     <% items.each do |item| %>
-      <li>
-        <%= link_to item.title, refinery.news_item_path(item) %>
-      </li>
+      <article class="news">
+        <%= content_tag_for :header, item do %>
+          <div class="date">
+            <%= l item.publish_date.to_date, format: :long %>
+          </div>
+          <h4>
+            <%= link_to item.title, refinery.news_item_path(item) %>
+          </h4>
+        <% end -%>
+      </article>
     <% end %>
-  </ul>
-</nav>
+  </div>
+</aside>
