@@ -8,8 +8,10 @@ module ApplicationHelper
   end
 
   def website_def_content(center, website)
-    link = website.gsub(/<\/?p>/, "")
-    link_to link, link, target: "_blank"
+    if website
+      link = website.gsub(/<\/?p>/, "")
+      link_to link, link, target: "_blank"
+    end
   end
 
   def general_def_content(center, field)
@@ -17,7 +19,7 @@ module ApplicationHelper
   end
 
   def email_def_content(center, email)
-    email.gsub(/<\/?p>/, "").split("<br />").map {|item| mail_to(item, nil, replace_at: "_at_", replace_dot: "_dot_")}.join("<br/>").html_safe
+    email.gsub(/<\/?p>/, "").split("<br />").map {|item| mail_to(item)}.join("<br/>").html_safe
   end
 
   def nav_item(name=nil, alt=nil)
