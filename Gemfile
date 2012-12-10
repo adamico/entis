@@ -52,7 +52,7 @@ gem 'refinerycms-search', '~> 2.0.0', :git => 'git://github.com/refinery/refiner
 gem 'refinerycms-page-images', '~> 2.0.0'
 
 gem 'fog'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', "~> 3.5.3.25"
 
 gem 'refinerycms-centers', :path => 'vendor/extensions'
 
