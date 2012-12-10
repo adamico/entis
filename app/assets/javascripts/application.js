@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require raphael-min
 //= require common
+//= require europe
+//= require maps
 //= require_tree .
