@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require raphael-min
+//= require g.raphael-min
 //= require common
 //= require europe
 //= require maps
