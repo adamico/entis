@@ -2,10 +2,12 @@ $ = jQuery
 
 $ ->
   europe = Raphael("canvas_europe", 250, 250)
-  middle_east = Raphael("canvas_middle_east", 250, 250)
+  middle_east = Raphael("canvas_middle_east", 125, 105)
+  south_america = Raphael("canvas_south_america", 125, 145)
 
   europe.rect(0, 0, 250, 250).attr({fill: "white"})
-  middle_east.rect(0, 0, 105, 105).attr({fill: "white"})
+  middle_east.rect(0, 0, 125, 105).attr({fill: "white"})
+  south_america.rect(0, 0, 125, 145).attr({fill: "white"})
 
   default_attr =
     stroke: "#aabbdd"
@@ -17,6 +19,32 @@ $ ->
     transform: "s0.04,0.04,-130,-80"
     fill: "black"
 
+
+  south_america.rect(0, 0, 125, 145).attr({"stroke-width": "2"})
+  south_america.text(100, 120, "South\nAmerica").attr({"font-size": 12, fill: "black"})
+
+  south_america_path = {}
+  for name, state of south_america_states
+    transform = if state.transform then state.transform else "s0.22,0.22,89,29t-280,-80"
+    south_america_path[name] = south_america.path(state.path).attr
+      stroke: "#aabbdd"
+      fill: "#7289C3"
+      transform: transform
+    color = if state.color then state.color else "black"
+    if state.cities
+      for city in state.cities
+        city_name = city.name
+        href = "/centers/#{state.name.urlify()}/#{city_name.urlify()}"
+        label = south_america.popup(city.x*0.22+8,city.y*0.22,city_name).hide()
+        dot = south_america.circle(city.x,city.y,10).attr(default_cities_attr).attr(transform: "s0.22,0.22,89,29t-280,-80", fill: color, stroke: color).attr
+          cursor: "pointer"
+          href: href
+        do (label, dot, city) ->
+          dot[0].onmouseover = ->
+              label.toFront().show()
+          dot[0].onmouseout = ->
+              label.hide()
+
   middle_east_path = {}
   for name, state of middle_east_states
     transform = if state.transform then state.transform else "s0.4,0.4,-1000,-110"
@@ -24,6 +52,23 @@ $ ->
       stroke: "#aabbdd"
       fill: "#7289C3"
       transform: transform
+    color = if state.color then state.color else "black"
+    if state.cities
+      for city in state.cities
+        city_name = city.name
+        href = "/centers/#{state.name.urlify()}/#{city_name.urlify()}"
+        label = middle_east.popup(city.x*0.04-15,city.y*0.04+56,city_name).hide()
+        dot = middle_east.circle(city.x,city.y,5).attr(default_cities_attr).attr(transform: "s0.4,0.4,-1000,-110", fill: color, stroke: color).attr
+          cursor: "pointer"
+          href: href
+        do (label, dot, city) ->
+          dot[0].onmouseover = ->
+              label.toFront().show()
+          dot[0].onmouseout = ->
+              label.hide()
+
+  middle_east.rect(0, 0, 125, 105).attr({"stroke-width": "2"})
+  middle_east.text(105, 20, "Middle\nEast").attr({"font-size": 12, fill: "white"})
 
   europe_path = {}
   for name, state of europe_states
@@ -54,9 +99,6 @@ $ ->
 
   europe.rect(0, 0, 250, 260).attr({"stroke-width": "2"})
   europe.text(25, 15, "Europe").attr({"font-size": 12})
-
-  middle_east.rect(0, 0, 105, 105).attr({"stroke-width": "2"})
-  middle_east.text(25, 40, "Middle\nEast").attr({"font-size": 12})
 
 String::urlify = ->
   this.replace(/'/g, "").replace(/\s/g, "-").toLowerCase()
