@@ -22,14 +22,14 @@ $ ->
     color = if state.color then state.color else "black"
     if state.cities
       for city in state.cities
-        lbl = europe.popup(city.x*0.04-127,city.y*0.04-80,city.name).hide()
+        label = europe.popup((city.x+55)*0.04-127,city.y*0.04-80,city.name).hide()
         dot = europe.circle(city.x,city.y,40).attr(default_cities_attr).attr(fill: color, stroke: color).attr
           cursor: "pointer"
-        do (lbl, dot) ->
+        do (label, dot) ->
           dot[0].onmouseover = ->
-              lbl.toFront().show()
+              label.toFront().show()
           dot[0].onmouseout = ->
-              lbl.hide()
+              label.hide()
 
   europe_cadre = europe.rect(0, 0, 250, 260).attr({"stroke-width": "2"})
   europe_label = europe.text(25, 15, "Europe").attr({"font-size": 12})
