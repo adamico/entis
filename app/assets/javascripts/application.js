@@ -17,5 +17,6 @@
 //= require g.raphael-min
 //= require common
 //= require europe
+//= require middle_east
 //= require maps
 //= require_tree .
