@@ -4,10 +4,12 @@ $ ->
   europe = Raphael("canvas_europe", 250, 250)
   middle_east = Raphael("canvas_middle_east", 125, 105)
   south_america = Raphael("canvas_south_america", 125, 145)
+  japan = Raphael("canvas_japan", 125, 125)
 
   europe.rect(0, 0, 250, 250).attr({fill: "white"})
   middle_east.rect(0, 0, 125, 105).attr({fill: "white"})
   south_america.rect(0, 0, 125, 145).attr({fill: "white"})
+  japan.rect(0,0, 125, 125).attr({fill: "white"})
 
   default_attr =
     stroke: "#aabbdd"
@@ -19,9 +21,34 @@ $ ->
     transform: "s0.04,0.04,-130,-80"
     fill: "black"
 
+  japan.rect(0,0,125,125).attr({"stroke-width": 2})
+  japan.text(25, 15, "Japan").attr({"font-size": 12})
+
+  japan_path = {}
+  for path in japan_paths
+    japan_path[name] = japan.path(path.path).attr
+      stroke: "#aabbdd"
+      fill: "#7289C3"
+      transform: "m0.12,0,0,0.12,0,5"
+
+  for city in japan_cities
+    city_name = city.name
+    href = "/centers/japan/#{city_name.urlify()}"
+    label = japan.popup(city.x*0.12,city.y*0.12,city_name).hide()
+    dot = japan.circle(city.x,city.y,10).attr(default_cities_attr).attr
+      transform: "m0.12,0,0,0.12,0,5"
+      fill: "black"
+      stroke: "black"
+      cursor: "pointer"
+      href: href
+    do (label, dot, city) ->
+      dot[0].onmouseover = ->
+          label.toFront().show()
+      dot[0].onmouseout = ->
+          label.hide()
 
   south_america.rect(0, 0, 125, 145).attr({"stroke-width": "2"})
-  south_america.text(100, 120, "South\nAmerica").attr({"font-size": 12, fill: "black"})
+  south_america.text(95, 120, "South\nAmerica").attr({"font-size": 12, fill: "black"})
 
   south_america_path = {}
   for name, state of south_america_states

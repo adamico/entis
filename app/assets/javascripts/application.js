@@ -19,5 +19,6 @@
 //= require europe
 //= require middle_east
 //= require south_america
+//= require japan
 //= require maps
 //= require_tree .
