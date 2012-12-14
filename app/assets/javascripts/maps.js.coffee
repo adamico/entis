@@ -1,28 +1,93 @@
 $ = jQuery
 
 $ ->
-  europe = Raphael("canvas_europe", 250, 250)
-  middle_east = Raphael("canvas_middle_east", 125, 105)
-  south_america = Raphael("canvas_south_america", 125, 145)
-  japan = Raphael("canvas_japan", 125, 125)
-
-  europe.rect(0, 0, 250, 250).attr({fill: "white"})
-  middle_east.rect(0, 0, 125, 105).attr({fill: "white"})
-  south_america.rect(0, 0, 125, 145).attr({fill: "white"})
-  japan.rect(0,0, 125, 125).attr({fill: "white"})
-
   default_attr =
     stroke: "#aabbdd"
-    transform: "s0.04,0.04,-130,-80"
     fill: "#7289C3"
 
-  default_cities_attr =
-    stroke: "black"
-    transform: "s0.04,0.04,-130,-80"
-    fill: "black"
+  maps =
+    europe:
+      canvas_x: 250
+      canvas_y: 250
+      text_x: 25
+      text_y: 15
+      areas: europe_states
+      city_radius: 50
+      transform_scale: 0.04
+      transform_delta_x: -120
+      transform_delta_y: -80
+      transform: "s0.04,0.04,0,0t-3000,-1900"
+    middle_east:
+      canvas_x: 125
+      canvas_y: 105
+      text_x: 105
+      text_y: 20
+      label: "Middle\nEast"
+      label_fill: "white"
+      areas: middle_east_states
+      city_radius: 5
+      transform_scale: 0.4
+      transform_delta_x: -600
+      transform_delta_y: -70
+      transform: "s0.4,0.4,-1000,-110"
+    south_america:
+      canvas_x: 125
+      canvas_y: 145
+      text_x: 95
+      text_y: 120
+      label: "South\nAmerica"
+      areas: south_america_states
+      city_radius: 10
+      transform_scale: 0.22
+      transform_delta_x: 7
+      transform_delta_y: 0
+      transform: "s0.22,0.22,89,29t-280,-80"
+    japan:
+      canvas_x: 125
+      canvas_y: 125
+      text_x: 25
+      text_y: 15
+      city_radius: 20
+  states_canvases = {}
+  for m, map of maps
+    states_canvases[m] = 
+      canvas: Raphael("canvas_#{m}", map.canvas_x, map.canvas_y)
 
-  japan.rect(0,0,125,125).attr({"stroke-width": 2})
-  japan.text(25, 15, "Japan").attr({"font-size": 12})
+  for s, state of states_canvases
+    console.log "processing state: #{s}"
+    state.canvas.rect(0,0,maps[s].canvas_x,maps[s].canvas_y).attr(fill: "white")
+    if maps[s].areas
+      for name, area of maps[s].areas
+        console.log "    area : #{name}"
+        transform = area.transform ? maps[s].transform
+        state.canvas.path(area.path).attr(default_attr).attr(transform: transform)
+        color = if area.color then area.color else "black"
+        if area.cities
+          for city in area.cities
+            city_radius = maps[s].city_radius
+            transform_scale = maps[s].transform_scale
+            transform_delta_x = maps[s].transform_delta_x
+            transform_delta_y = maps[s].transform_delta_y
+            city_name = city.name
+            href = "/centers/#{area.name.urlify()}/#{city_name.urlify()}"
+            label = state.canvas.popup(city.x*transform_scale+transform_delta_x,city.y*transform_scale+transform_delta_y,city_name).hide()
+            dot = state.canvas.circle(city.x,city.y,city_radius).attr
+              transform: transform
+              fill: color
+              stroke: color
+              cursor: "pointer"
+              href: href
+            do (label, dot, city) ->
+              dot[0].onmouseover = ->
+                  label.toFront().show()
+              dot[0].onmouseout = ->
+                  label.hide()
+    label = maps[s].label ? s.titleize()
+    label_fill = maps[s].label_fill ? "black"
+    state.canvas.rect(0,0,maps[s].canvas_x,maps[s].canvas_y).attr("stroke-width": 2)
+    state.canvas.text(maps[s].text_x,maps[s].text_y, label).attr("font-size": 12, fill: label_fill)
+
+  japan = states_canvases["japan"].canvas
 
   japan_path = {}
   for path in japan_paths
@@ -35,7 +100,7 @@ $ ->
     city_name = city.name
     href = "/centers/japan/#{city_name.urlify()}"
     label = japan.popup(city.x*0.12,city.y*0.12,city_name).hide()
-    dot = japan.circle(city.x,city.y,10).attr(default_cities_attr).attr
+    dot = japan.circle(city.x,city.y,20).attr
       transform: "m0.12,0,0,0.12,0,5"
       fill: "black"
       stroke: "black"
@@ -47,89 +112,11 @@ $ ->
       dot[0].onmouseout = ->
           label.hide()
 
-  south_america.rect(0, 0, 125, 145).attr({"stroke-width": "2"})
-  south_america.text(95, 120, "South\nAmerica").attr({"font-size": 12, fill: "black"})
-
-  south_america_path = {}
-  for name, state of south_america_states
-    transform = if state.transform then state.transform else "s0.22,0.22,89,29t-280,-80"
-    south_america_path[name] = south_america.path(state.path).attr
-      stroke: "#aabbdd"
-      fill: "#7289C3"
-      transform: transform
-    color = if state.color then state.color else "black"
-    if state.cities
-      for city in state.cities
-        city_name = city.name
-        href = "/centers/#{state.name.urlify()}/#{city_name.urlify()}"
-        label = south_america.popup(city.x*0.22+8,city.y*0.22,city_name).hide()
-        dot = south_america.circle(city.x,city.y,10).attr(default_cities_attr).attr(transform: "s0.22,0.22,89,29t-280,-80", fill: color, stroke: color).attr
-          cursor: "pointer"
-          href: href
-        do (label, dot, city) ->
-          dot[0].onmouseover = ->
-              label.toFront().show()
-          dot[0].onmouseout = ->
-              label.hide()
-
-  middle_east_path = {}
-  for name, state of middle_east_states
-    transform = if state.transform then state.transform else "s0.4,0.4,-1000,-110"
-    middle_east_path[name] = middle_east.path(state.path).attr
-      stroke: "#aabbdd"
-      fill: "#7289C3"
-      transform: transform
-    color = if state.color then state.color else "black"
-    if state.cities
-      for city in state.cities
-        city_name = city.name
-        href = "/centers/#{state.name.urlify()}/#{city_name.urlify()}"
-        label = middle_east.popup(city.x*0.04-15,city.y*0.04+56,city_name).hide()
-        dot = middle_east.circle(city.x,city.y,5).attr(default_cities_attr).attr(transform: "s0.4,0.4,-1000,-110", fill: color, stroke: color).attr
-          cursor: "pointer"
-          href: href
-        do (label, dot, city) ->
-          dot[0].onmouseover = ->
-              label.toFront().show()
-          dot[0].onmouseout = ->
-              label.hide()
-
-  middle_east.rect(0, 0, 125, 105).attr({"stroke-width": "2"})
-  middle_east.text(105, 20, "Middle\nEast").attr({"font-size": 12, fill: "white"})
-
-  europe_path = {}
-  for name, state of europe_states
-    europe_path[name] = europe.path(state.path).attr(default_attr)
-    europe_path[name].attr(transform: "...m1.43317,0,0,1.43317,-2435.49,-1086.58") if name is "ru"
-    color = if state.color then state.color else "black"
-    if state.cities
-      for city in state.cities
-        if city.name is "Paris"
-          city_name = "Paris-CRAT\nParis-HSVP"
-          href = "#"
-          modal = getModal()
-        else
-          city_name = city.name
-          href = "/centers/#{state.name.urlify()}/#{city_name.urlify()}"
-        label = europe.popup((city.x+55)*0.04-127,city.y*0.04-80,city_name).hide()
-        dot = europe.circle(city.x,city.y,40).attr(default_cities_attr).attr(fill: color, stroke: color).attr
-          cursor: "pointer"
-          href: href
-        do (label, dot, city) ->
-          dot[0].onmouseover = ->
-              label.toFront().show()
-          dot[0].onmouseout = ->
-              label.hide()
-          if city.name is "Paris"
-            dot[0].onclick = ->
-              modal.modal('show')
-
-  europe.rect(0, 0, 250, 260).attr({"stroke-width": "2"})
-  europe.text(25, 15, "Europe").attr({"font-size": 12})
-
 String::urlify = ->
   this.replace(/'/g, "").replace(/\s/g, "-").toLowerCase()
 
+String::titleize = ->
+ @charAt(0).toUpperCase() + @substr(1)
 
 getModal = ->
   modal = $("""
