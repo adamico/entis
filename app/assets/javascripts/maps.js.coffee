@@ -47,6 +47,8 @@ $ ->
       canvas_y: 125
       text_x: 25
       text_y: 15
+      transform: "m0.12,0,0,0.12,0,5"
+      areas: japan_paths
       city_radius: 20
   states_canvases = {}
   for m, map of maps
@@ -88,22 +90,14 @@ $ ->
     state.canvas.text(maps[s].text_x,maps[s].text_y, label).attr("font-size": 12, fill: label_fill)
 
   japan = states_canvases["japan"].canvas
-
-  japan_path = {}
-  for path in japan_paths
-    japan_path[name] = japan.path(path.path).attr
-      stroke: "#aabbdd"
-      fill: "#7289C3"
-      transform: "m0.12,0,0,0.12,0,5"
-
   for city in japan_cities
     city_name = city.name
     href = "/centers/japan/#{city_name.urlify()}"
     label = japan.popup(city.x*0.12,city.y*0.12,city_name).hide()
     dot = japan.circle(city.x,city.y,20).attr
       transform: "m0.12,0,0,0.12,0,5"
-      fill: "black"
-      stroke: "black"
+      fill: "blue"
+      stroke: "blue"
       cursor: "pointer"
       href: href
     do (label, dot, city) ->
