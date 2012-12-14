@@ -57,11 +57,9 @@ $ ->
       canvas: Raphael("canvas_#{m}", map.canvas_x, map.canvas_y)
 
   for s, state of states_canvases
-    console.log "processing state: #{s}"
     state.canvas.rect(0,0,maps[s].canvas_x,maps[s].canvas_y).attr(fill: "white")
     if maps[s].areas
       for name, area of maps[s].areas
-        console.log "    area : #{name}"
         transform = area.transform ? maps[s].transform
         fill = area.fill ? default_attr["fill"]
         state.canvas.path(area.path).attr(default_attr).attr(transform: transform, fill: fill)
