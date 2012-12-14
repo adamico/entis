@@ -7,7 +7,7 @@ $ ->
 
   maps =
     europe:
-      canvas_x: 250
+      canvas_x: 280
       canvas_y: 250
       text_x: 25
       text_y: 15
@@ -50,6 +50,7 @@ $ ->
       transform: "m0.12,0,0,0.12,0,5"
       areas: japan_paths
       city_radius: 20
+
   states_canvases = {}
   for m, map of maps
     states_canvases[m] = 
@@ -62,17 +63,19 @@ $ ->
       for name, area of maps[s].areas
         console.log "    area : #{name}"
         transform = area.transform ? maps[s].transform
-        state.canvas.path(area.path).attr(default_attr).attr(transform: transform)
+        fill = area.fill ? default_attr["fill"]
+        state.canvas.path(area.path).attr(default_attr).attr(transform: transform, fill: fill)
         color = if area.color then area.color else "black"
         if area.cities
           for city in area.cities
-            city_radius = maps[s].city_radius
+            city_radius = area.dots_size ? maps[s].city_radius
             transform_scale = maps[s].transform_scale
-            transform_delta_x = maps[s].transform_delta_x
-            transform_delta_y = maps[s].transform_delta_y
+            transform_delta_x = city.label_delta_x ? maps[s].transform_delta_x
+            transform_delta_y = city.label_delta_y ? maps[s].transform_delta_y
             city_name = city.name
+            dir = city.label_dir ? "up"
             href = "/centers/#{area.name.urlify()}/#{city_name.urlify()}"
-            label = state.canvas.popup(city.x*transform_scale+transform_delta_x,city.y*transform_scale+transform_delta_y,city_name).hide()
+            label = state.canvas.popup(city.x*transform_scale+transform_delta_x,city.y*transform_scale+transform_delta_y,city_name, dir).hide()
             dot = state.canvas.circle(city.x,city.y,city_radius).attr
               transform: transform
               fill: color
