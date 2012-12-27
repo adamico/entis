@@ -10,7 +10,9 @@ module ApplicationHelper
   def website_def_content(center, website)
     if website
       link = website.gsub(/<\/?p>/, "")
-      link_to link, link, target: "_blank"
+      link_to link, target: "_blank" do
+        content_tag(:i, nil, class: "icon-share") + link
+      end
     end
   end
 
