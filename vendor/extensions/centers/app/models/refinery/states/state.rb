@@ -9,7 +9,10 @@ module Refinery
       acts_as_indexed :fields => [:name]
 
       validates :name, :presence => true, :uniqueness => true
-      has_many :centers, class_name: "::Refinery::Centers::Center"
+      has_many :centers, class_name: "::Refinery::Centers::Center",
+        conditions: "observer = false OR observer IS NULL"
+      has_many :observers, class_name: "::Refinery::Centers::Center",
+        conditions: {observer: true}
 
       friendly_id :name, use: :slugged
     end

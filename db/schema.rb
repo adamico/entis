@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205134610) do
+ActiveRecord::Schema.define(:version => 20121227082822) do
 
   create_table "refinery_centers", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121205134610) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "slug"
+    t.boolean  "observer"
   end
 
   add_index "refinery_centers", ["slug"], :name => "index_refinery_centers_on_slug"
@@ -69,6 +70,28 @@ ActiveRecord::Schema.define(:version => 20121205134610) do
     t.string   "image_ext"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "refinery_members", :force => true do |t|
+    t.string   "name"
+    t.string   "service_name"
+    t.string   "service_head"
+    t.text     "address"
+    t.text     "phone"
+    t.text     "fax"
+    t.text     "email"
+    t.text     "website"
+    t.string   "creation"
+    t.text     "accept_calls_from"
+    t.text     "hours"
+    t.text     "affiliation"
+    t.text     "staff"
+    t.string   "area_served"
+    t.integer  "state_id"
+    t.integer  "position"
+    t.string   "slug"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "refinery_membership_email_part_translations", :force => true do |t|

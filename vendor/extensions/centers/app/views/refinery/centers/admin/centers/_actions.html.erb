@@ -4,9 +4,18 @@
       <%= render '/refinery/admin/search', :url => refinery.centers_admin_centers_path %>
     </li>
   <% end %>
+  <% if params[:observer] && params[:observer] == "true" %>
+    <% observer = nil ; title = "List all centers" ; icon = "folder"-%>
+  <% else %>
+    <% observer = true ; title = "Filter out observers" ; icon = "eye"-%>
+  <% end -%>
+  <li>
+    <%= link_to title, refinery.centers_admin_centers_path(observer: observer),
+      :class => "#{icon}_icon"%>
+  </li>
   <li>
     <%= link_to t('.create_new'), refinery.new_centers_admin_center_path,
-                 :class => "add_icon" %>
+      :class => "add_icon" %>
   </li>
 <% if !searching? && ::Refinery::Centers::Admin::CentersController.sortable? && ::Refinery::Centers::Center.any? %>
   <li>

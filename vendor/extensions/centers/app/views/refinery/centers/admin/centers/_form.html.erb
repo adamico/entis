@@ -3,36 +3,36 @@
               :object => @center,
               :include_object_name => true %>
 
-  
   <div class='field'>
     <%= f.label :name -%>
     <%= f.text_field :name, :class => 'larger widest'  -%>
-
   </div>
-  
+
+  <div class='field'>
+    <%= f.label :observer %>
+    <%= f.check_box :observer %>
+  </div>
+
   <div class='field'>
     <%= f.label :state_id -%>
     <%= f.collection_select :state_id, ::Refinery::States::State.order("name ASC"), :id, :name -%>
   </div>
-  
+
   <div class='field'>
     <%= f.label :service_name -%>
     <%= f.text_field :service_name, :class => 'widest' -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :area_served -%>
     <%= f.text_field :area_served, :class => 'widest'  -%>
-
   </div>
-  
+
   <div class='field'>
     <%= f.label :website -%>
     <%= f.text_field :website, :class => 'widest'  -%>
-
   </div>
-  
+
   <div class='field'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
       <ul id='page_parts'>
@@ -51,16 +51,14 @@
       </div>
     </div>
   </div>
-  
 
-  </div>
-  
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.centers.admin.centers.center'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @center.name) %>
 <% end -%>
-<% content_for :javascripts do %>
+
+<%= content_for :javascripts do %>
   <script>
     $(document).ready(function(){
       page_options.init(false, '', '');

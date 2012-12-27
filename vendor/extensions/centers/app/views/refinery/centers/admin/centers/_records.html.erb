@@ -1,6 +1,13 @@
 <% if searching? %>
   <h2><%= t('results_for', :scope => 'refinery.admin.search', :query => params[:search]) %></h2>
 <% end %>
+
+<% if params[:observer] && params[:observer] == 'true' %>
+  <h2>Listing centers with observer status only</h2>
+<% else %>
+  <h2>Listing all centers</h2>
+<% end -%>
+
 <div class='pagination_container'>
   <% if @centers.any? %>
     <%= render 'centers' %>

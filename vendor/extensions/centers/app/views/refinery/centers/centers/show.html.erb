@@ -3,6 +3,9 @@
 <% end %>
 
 <% content_for :body do %>
+  <% if @center.observer %>
+    <p class="text-warning">This TIS center has an <em>observer</em> status in ENTIS, more info will be added as soon as they are available.</p>
+  <% end -%>
   <dl class="dl-horizontal dl-large">
     <% %w(service_name service_head address phone fax).each do |field| -%>
       <%= def_item_for_center(@center, field) %>
