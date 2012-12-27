@@ -1,7 +1,7 @@
 <section id='records'>
-  <%= render 'records' %>
+  <%= render 'records', centers: observer_only? ? @observers : @centers %>
 </section>
 <aside id='actions'>
-  <%= render 'actions' %>
+  <%= render 'actions', centers: observer_only? ? @observers : @centers %>
 </aside>
 <%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::Centers::Admin::CentersController.sortable? and ::Refinery::Centers::Center.count > 1 %>
