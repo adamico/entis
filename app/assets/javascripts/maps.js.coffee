@@ -66,25 +66,26 @@ $ ->
         color = if area.color then area.color else "black"
         if area.cities
           for city in area.cities
-            city_radius = area.dots_size ? maps[s].city_radius
-            transform_scale = maps[s].transform_scale
-            transform_delta_x = city.label_delta_x ? maps[s].transform_delta_x
-            transform_delta_y = city.label_delta_y ? maps[s].transform_delta_y
-            city_name = city.name
-            dir = city.label_dir ? "up"
-            href = "/centers/#{area.name.urlify()}/#{city_name.urlify()}"
-            label = state.canvas.popup(city.x*transform_scale+transform_delta_x,city.y*transform_scale+transform_delta_y,city_name, dir).hide()
-            dot = state.canvas.circle(city.x,city.y,city_radius).attr
-              transform: transform
-              fill: color
-              stroke: color
-              cursor: "pointer"
-              href: href
-            do (label, dot, city) ->
-              dot[0].onmouseover = ->
-                  label.toFront().show()
-              dot[0].onmouseout = ->
-                  label.hide()
+            unless city.observer?
+              city_radius = area.dots_size ? maps[s].city_radius
+              transform_scale = maps[s].transform_scale
+              transform_delta_x = city.label_delta_x ? maps[s].transform_delta_x
+              transform_delta_y = city.label_delta_y ? maps[s].transform_delta_y
+              city_name = city.name
+              dir = city.label_dir ? "up"
+              href = "/centers/#{area.name.urlify()}/#{city_name.urlify()}"
+              label = state.canvas.popup(city.x*transform_scale+transform_delta_x,city.y*transform_scale+transform_delta_y,city_name, dir).hide()
+              dot = state.canvas.circle(city.x,city.y,city_radius).attr
+                transform: transform
+                fill: color
+                stroke: color
+                cursor: "pointer"
+                href: href
+              do (label, dot, city) ->
+                dot[0].onmouseover = ->
+                    label.toFront().show()
+                dot[0].onmouseout = ->
+                    label.hide()
     label = maps[s].label ? s.titleize()
     label_fill = maps[s].label_fill ? "black"
     state.canvas.rect(0,0,maps[s].canvas_x,maps[s].canvas_y).attr("stroke-width": 2)

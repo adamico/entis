@@ -14,7 +14,6 @@
       <tr>
         <th>State</th>
         <th>Members</th>
-        <th>Observers</th>
       </tr>
     </thead>
     <tbody>
@@ -24,15 +23,6 @@
           <td>
             <ul class="comma-list">
               <% state.centers.each do |center| %>
-                <li>
-                  <%= link_to center.name, refinery.centers_state_centers_path(center, state_id: center.state) %>
-                </li>
-              <% end -%>
-            </ul>
-          </td>
-          <td>
-            <ul class="comma-list">
-              <% state.observers.each do |center| %>
                 <li>
                   <%= link_to center.name, refinery.centers_state_centers_path(center, state_id: center.state) %>
                 </li>
