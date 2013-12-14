@@ -11,16 +11,12 @@
   <div id="backtotop_anchor"></div>
   <div class="container-fluid" role="main">
     <div class="row-fluid">
-      <div class="span9"><%= yield %></div>
+      <div class="span9">
+        <%= yield %>
+        <%= render '/refinery/footer' %>
+      </div>
       <div class="span3">
         <div id="side_menu"><%= render '/refinery/side_menu' %></div>
-      </div>
-    </div>
-  </div>
-  <div class="bottombar">
-    <div class="bottombar-inner">
-      <div class="container">
-        <%= render '/refinery/footer' %>
       </div>
     </div>
   </div>
