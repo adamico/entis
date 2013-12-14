@@ -1,0 +1,15 @@
+<%= will_paginate @publications if Refinery::Publications::Admin::PublicationsController.pageable? %>
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Review</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "publication", collection: @publications %>
+  </tbody>
+</table>
