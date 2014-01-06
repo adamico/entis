@@ -69,7 +69,8 @@ module Rickrockstar
       Refinery.searchable_models = [
         Refinery::Page,
         Refinery::News::Item,
-        Refinery::Publications::Publication
+        Refinery::Publications::Publication,
+        Refinery::Centers::Center
       ]
     end
   end
