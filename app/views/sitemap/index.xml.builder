@@ -22,7 +22,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
     end
     %w(publications books links news).each do |name|
-      page = Page.where(link_url: "/#{name}").first
+      page = ::Refinery::Page.where(link_url: "/#{name}").first
       page_url = [request.protocol, request.host_with_port, page.url].join
       xml.url do
         xml.loc url_for(page_url)
